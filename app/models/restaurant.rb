@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
   has_many :restaurant_hours
+  has_many :users, through: :date_plan
 
 
   # #Constants

@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :restaurants, through: :date_plan
+  has_many :events, through: :date_plan
+  has_many :date_plans
+
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:google_oauth2]
