@@ -62,12 +62,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+
+# postgres 
 gem 'pg'
+## social login
 gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
-gem "bootstrap-sass-rails"
-
+#api call
 gem 'http'
+
+# environment varriable security
+gem 'figaro'
