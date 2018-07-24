@@ -12,21 +12,20 @@
 
 ActiveRecord::Schema.define(version: 2018_07_24_052659) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
-    t.string "location"
-    t.string "categories"
-    t.string "price"
-    t.string "open_days"
-    t.string "hour_open"
-    t.string "hour_close"
     t.string "image_url"
-    t.string "address"
-    t.string "phone"
-    t.string "url_restaurant"
+    t.string "restaurant_url"
+    t.text "categories_title", default: [], array: true
     t.decimal "rating"
-    t.decimal "lat"
-    t.decimal "long"
+    t.string "coordinates_longitude"
+    t.string "coordinates_latitude"
+    t.string "price"
+    t.text "address", default: [], array: true
+    t.string "phone"
     t.string "yelp_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

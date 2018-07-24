@@ -2,19 +2,15 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
   def change
     create_table :restaurants do |t|
       t.string :name
-      t.string :location
-      t.string :categories
-      t.string :price
-      t.string :open_days
-      t.string :hour_open
-      t.string :hour_close
       t.string :image_url
-      t.string :address
-      t.string :phone
-      t.string :url_restaurant
+      t.string :restaurant_url
+      t.text :categories_title, array:true, default: []
       t.decimal :rating
-      t.decimal :lat
-      t.decimal :long
+      t.string :coordinates_longitude
+      t.string :coordinates_latitude
+      t.string :price
+      t.text :address, array:true, default: []
+      t.string :phone
       t.string :yelp_id
 
       t.timestamps
