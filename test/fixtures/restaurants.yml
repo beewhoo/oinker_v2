@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  location: MyString
+  categories: MyString
+  price: MyString
+  open_days: MyString
+  hour_open: MyString
+  hour_close: MyString
+  image_url: MyString
+  address: MyString
+  phone: MyString
+  url_restaurant: MyString
+  rating: 9.99
+  lat: 9.99
+  long: 9.99
+  yelp_id: MyString
+
+two:
+  name: MyString
+  location: MyString
+  categories: MyString
+  price: MyString
+  open_days: MyString
+  hour_open: MyString
+  hour_close: MyString
+  image_url: MyString
+  address: MyString
+  phone: MyString
+  url_restaurant: MyString
+  rating: 9.99
+  lat: 9.99
+  long: 9.99
+  yelp_id: MyString

@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_24_051309) do
+ActiveRecord::Schema.define(version: 2018_07_24_052659) do
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "categories"
+    t.string "price"
+    t.string "open_days"
+    t.string "hour_open"
+    t.string "hour_close"
+    t.string "image_url"
+    t.string "address"
+    t.string "phone"
+    t.string "url_restaurant"
+    t.decimal "rating"
+    t.decimal "lat"
+    t.decimal "long"
+    t.string "yelp_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
