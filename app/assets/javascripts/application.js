@@ -14,30 +14,30 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
-
-    var plus = document.querySelector('.qtyplus');
-    var minus = document.querySelector('.qtyminus');
-    var quantity = document.querySelector('.qty');
-
-    var value = 0
-
-    plus.addEventListener('click',function(){
-      quantity.value = value;
-      var newValue = value++;
-
-    minus.addEventListener('click',function(){
-        quantity.value = newValue;
-        if (newValue > 0) 
-        newValue--;
-      })
-
-    })
-
-
-
-
-
-
-  });
+// document.addEventListener("DOMContentLoaded", function(event) {
+//     console.log("DOM fully loaded and parsed");
+//
+//     var plus = document.querySelector('.qtyplus');
+//     var minus = document.querySelector('.qtyminus');
+//     var quantity = document.querySelector('.qty');
+//
+//     var value = 0
+//
+//     plus.addEventListener('click',function(){
+//       quantity.value = value;
+//       var newValue = value++;
+//
+//     minus.addEventListener('click',function(){
+//         quantity.value = newValue;
+//         if (newValue > 0)
+//         newValue--;
+//       })
+//
+//     })
+//
+//
+//
+//
+//
+//
+//   });
