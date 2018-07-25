@@ -63,7 +63,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-# postgres 
+# postgres
 gem 'pg'
 ## social login
 gem 'therubyracer'
@@ -73,6 +73,7 @@ gem 'omniauth-google-oauth2'
 
 #api call
 gem 'http'
+gem 'httparty', '~> 0.13.7'
 
 # environment varriable security
 gem 'figaro'
