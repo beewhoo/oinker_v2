@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   resources :restaurants
   root 'restaurants#index'
 
-  get '/oinker', to: 'welcome#homepage'
-  get '/oinker/carousel', to: 'welcome#carousel'
-  get '/oinker/choice', to: 'welcome#res_ev_choice'
-  get '/oinker/date_choice', to: 'welcome#date_choice'
-  get '/oinker/budget_choice', to: 'welcome#budget_choice'
-  get '/oinker/location_choice', to: 'welcome#location_choice'
-  get '/oinker/party_size', to: 'welcome#party_size'
-  get '/oinker/categories', to: 'welcome#categories'
+  get '/welcome', to: 'welcome#homepage'
+  get '/welcome/carousel', to: 'welcome#carousel'
+  get '/welcome/choice', to: 'welcome#res_ev_choice'
+  get '/welcome/date_choice', to: 'welcome#date_choice'
+  get '/welcome/budget_choice', to: 'welcome#budget_choice'
+  get '/welcome/location_choice', to: 'welcome#location_choice'
+  get '/welcome/party_size', to: 'welcome#party_size'
+  get '/welcome/categories', to: 'welcome#categories'
 end

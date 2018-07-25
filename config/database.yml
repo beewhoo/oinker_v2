@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: project_development
   pool: 5
-  username: shahzeenjiwani
+  username: 
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -52,4 +52,4 @@ production:
   database: project_production
   pool: 5
   username: shahzeenjiwani
-  password: 
+  password:

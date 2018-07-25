@@ -77,3 +77,6 @@ gem 'httparty', '~> 0.13.7'
 
 # environment varriable security
 gem 'figaro'
+
+#jquery
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
