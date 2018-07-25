@@ -68,25 +68,25 @@ namespace :res do
 
 
 
-
-  SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
-  SEATGEEK_HOST='https://api.seatgeek.com/2/events?'
-  SEATGEEK_CITY='&venue.city=toronto'
-  SEATGEEK_LISTINGS = '&per_page=25'
-  SEATGEEK_PRICE='listing_count.gt=0&highest_price.lte=100'
-
-
-  puts "= Getting the EVENTS"
-
-  url = "#{SEATGEEK_HOST}#{SEATGEEK_PRICE}#{SEATGEEK_CITY}#{SEATGEEK_LISTINGS}&client_id=#{SEATGEEK_CLIENT_ID}"
-
-
-    response = HTTParty.get(url)
-    response_json = JSON.parse(response.body)
-    byebug
-    puts "= Start Parsing"
-
-
+  # 
+  # SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
+  # SEATGEEK_HOST='https://api.seatgeek.com/2/events?'
+  # SEATGEEK_CITY='&venue.city=toronto'
+  # SEATGEEK_LISTINGS = '&per_page=25'
+  # SEATGEEK_PRICE='listing_count.gt=0&highest_price.lte=100'
+  #
+  #
+  # puts "= Getting the EVENTS"
+  #
+  # url = "#{SEATGEEK_HOST}#{SEATGEEK_PRICE}#{SEATGEEK_CITY}#{SEATGEEK_LISTINGS}&client_id=#{SEATGEEK_CLIENT_ID}"
+  #
+  #
+  #   response = HTTParty.get(url)
+  #   response_json = JSON.parse(response.body)
+  #   byebug
+  #   puts "= Start Parsing"
+  #
+  #
 
 
 
