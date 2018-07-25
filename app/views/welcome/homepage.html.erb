@@ -1,4 +1,60 @@
 <h1 class="welcomeOinklet"> Welcome to OINKLET </h1>
 <section class="carousel-section">
   <h2> This is the carousel</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    <!--  when data loads, this slider will start sliding -->
+      <div id="slider" class="carousel slide" data-ride="carousel-fluid">
+        <!-- indicators dot nov-->
+        <ol class="carousel-indicators">
+          <li data-target="#slider" data-slide-to="0" class="active"></li>
+          <li data-target="#slider" data-slide-to="1"></li>
+          <li data-target="#slider" data-slide-to="2"></li>
+        </ol>
+
+        <!-- wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <!-- slide that the web opens on-->
+          <div class="item active">
+            <%= image_tag("carousel/clippigletst3.gif") %>
+            <div class="carousel-caption">
+             <h1>Discover</h1>
+              <p>
+                Find the newest restaurants and cool events happening near you
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag("carousel/pigclown.gif") %>
+            <div class="carousel-caption">
+             <h1>Plan</h1>
+              <p>
+                Choose your plans, at the budget you want
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag("carousel/piglethoneypot.gif") %>
+            <div class="carousel-caption">
+             <h1>Enjoy</h1>
+              <p>
+                We'll keep you on track so you can sit back and relax
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- controls / next and prev buttons. id should be of your slider-->
+        <a class="left carousel-control" href="#slider" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#slider" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </section>

@@ -13,6 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-sprockets
 //= require_tree .
 // document.addEventListener("DOMContentLoaded", function(event) {
 //     console.log("DOM fully loaded and parsed");
