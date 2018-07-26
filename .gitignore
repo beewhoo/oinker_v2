@@ -31,3 +31,6 @@
 
 #ignore api keys 
 /config/application.yml
+
+# Ignore application configuration
+/config/application.yml
