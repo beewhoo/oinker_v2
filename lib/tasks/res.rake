@@ -29,12 +29,28 @@ namespace :res do
       response_json = response.parse
       puts "= Start Parsing"
 
+      # see from our list of categories if the restaurant has those categories
       response_json['businesses'].each do |resta|
          @restaurant = Restaurant.find_or_create_by(yelp_id: resta["id"])
+         our_categories = Category.all
+         our_categories.each do |category|
+           resta["categories"].each do |h|
+             if h["title"] == category.category
+               @restaurant.categories << category
+             end
+           end
+         end
+
+         # remove restaurant from list of restaurants if the categories is empty
+         # move onto the next restaurant
+         if @restaurant.categories.empty?
+           @restaurant.destroy
+           next
+         end
+
          @restaurant.name = resta["name"]
          @restaurant.image_url = resta["image_url"]
          @restaurant.restaurant_url = resta["url"]
-         @restaurant.categories_title = resta["categories"].map {|h| h["title"]}
          @restaurant.rating = resta["rating"]
          @restaurant.coordinates_longitude = resta["coordinates"]["longitude"]
          @restaurant.coordinates_latitude = resta["coordinates"]["latitude"]
@@ -68,7 +84,7 @@ namespace :res do
 
 
 
-  # 
+  #
   # SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
   # SEATGEEK_HOST='https://api.seatgeek.com/2/events?'
   # SEATGEEK_CITY='&venue.city=toronto'
