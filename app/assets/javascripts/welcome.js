@@ -9,25 +9,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // quantity of seats and participants
 
-    var plus = document.querySelector('.qtyplus');
-    var minus = document.querySelector('.qtyminus');
-    var quantity = document.querySelector('.qty');
-
-    var value = 1
-
-    plus.addEventListener('click',function(){
-      quantity.value = value;
-      var newValue = value++;
-
-    minus.addEventListener('click',function(){
-        quantity.value = newValue;
-        if (newValue > 0)
-        newValue--;
-        if (newValue === 0)
-        value = 1;
-      })
-
-    })
+    // var plus = document.querySelector('.qtyplus');
+    // var minus = document.querySelector('.qtyminus');
+    // var quantity = document.querySelector('.qty');
+    //
+    // var value = 1
+    //
+    // plus.addEventListener('click',function(){
+    //   quantity.value = value;
+    //   var newValue = value++;
+    //
+    // minus.addEventListener('click',function(){
+    //     quantity.value = newValue;
+    //     if (newValue > 0)
+    //     newValue--;
+    //     if (newValue === 0)
+    //     value = 1;
+    //   })
+    //
+    // })
 
     // postalcode capture and validation
 

@@ -1,7 +1,7 @@
 class Restaurant < ApplicationRecord
   has_many :restaurant_hours
   has_many :users, through: :date_plan
-
+  has_and_belongs_to_many :categories
 
 
 

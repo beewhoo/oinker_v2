@@ -13,7 +13,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 200
+    while offset < 20
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -31,15 +31,29 @@ namespace :res do
 
       response_json['businesses'].each do |resta|
          @restaurant = Restaurant.find_or_create_by(yelp_id: resta["id"])
+         our_categories = Category.all
+         our_categories.each do |category|
+           resta["categories"].each do |h|
+             if h["title"] == category.category
+               @restaurant.categories << category
+             end
+           end
+         end
+
+         p @restaurant.categories.empty?
+         if @restaurant.categories.empty?
+           @restaurant.destroy
+           next
+         end
+
          @restaurant.name = resta["name"]
          @restaurant.image_url = resta["image_url"]
          @restaurant.restaurant_url = resta["url"]
-         @restaurant.categories_title = resta["categories"].map {|h| h["title"]}
          @restaurant.rating = resta["rating"]
          @restaurant.coordinates_longitude = resta["coordinates"]["longitude"]
          @restaurant.coordinates_latitude = resta["coordinates"]["latitude"]
          @restaurant.price = resta["price"]
-         @restaurant.address = resta["location"]["display_address"]
+         @restaurant.address = resta["location"]["display_address"].join(', ')
          @restaurant.phone = resta["display_phone"]
          puts "= second call"
          detail_response = HTTP.auth("Bearer #{API_KEY}").get("#{url_details}#{resta['id']}")
@@ -57,6 +71,9 @@ namespace :res do
 
 
            @restaurant.save!
+
+           # check the categories from API results, compare to
+
            puts "= Restaurant Saved. #{@restaurant.name}"
         end
 
@@ -68,7 +85,7 @@ namespace :res do
 
 
 
-  # 
+  #
   # SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
   # SEATGEEK_HOST='https://api.seatgeek.com/2/events?'
   # SEATGEEK_CITY='&venue.city=toronto'
