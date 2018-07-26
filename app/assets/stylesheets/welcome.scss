@@ -1,16 +1,104 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// quantity
+html {
+  text-align: center;
+  box-sizing: border-box;
+}
+
 #myform {
     text-align: center;
-    padding: 5px;
+    padding: 0.3em;
     border: 1px dotted #ccc;
     margin: 2%;
 }
 .qty {
-    width: 40px;
-    height: 25px;
+    width: 3.1em;
+    height: 2.2em;
     text-align: center;
 }
-input.qtyplus { width:25px; height:25px;}
-input.qtyminus { width:25px; height:25px;}
+input.qtyplus { width:2.2em; height:2.2em;}
+input.qtyminus { width:2.2em; height:2.2em;}
+
+//postalcode
+
+#postalcode {
+    text-align: center;
+    padding: .3em;
+    border: 1px dotted #ccc;
+    margin: 2%;
+}
+.pstbox, .submit {
+    width: 11em;
+    height: 2.5em;
+    text-align: center;
+}
+
+//categories
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 1em;
+  background-color: #fff;
+  color: #444;
+  width: 100%;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 1em;
+  padding: 2em;
+  font-size: 120%;
+  display: block;
+
+
+}
+
+
+// res_ev_choice
+
+
+.button {
+    position: relative;
+    background-color: #43c2c1;
+    font-size: 2em;
+    color: #FFFFFF;
+    padding: 0.3em;
+    width: 300px;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0.3em;
+    text-align: center;
+    border-radius: 0.3em;
+}
+
+.button:hover {
+  background-color:#aaa;
+}
+
+.choices {
+  margin-bottom: 4em;
+}
+
+// restaurant_rating_top 6
+
+.top_rated_restaurants img{
+  height: 150px;
+  width:150px;
+}
+
+.rated_grid{
+  display: inline-grid;
+  grid-gap: 0.3em;
+  grid-template-columns: 2fr 2fr;
+
+
+}

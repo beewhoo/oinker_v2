@@ -6,6 +6,7 @@ class WelcomeController < ApplicationController
   end
 
   def res_ev_choice
+    @top_rated_restaurants = Restaurant.rating
   end
 
   def date_choice
@@ -15,6 +16,7 @@ class WelcomeController < ApplicationController
   end
 
   def location_choice
+
   end
 
   def party_size
