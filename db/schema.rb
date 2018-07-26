@@ -10,15 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_145011) do
+ActiveRecord::Schema.define(version: 2018_07_26_152442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_restaurants", id: false, force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_categories_restaurants_on_category_id"
+    t.index ["restaurant_id"], name: "index_categories_restaurants_on_restaurant_id"
   end
 
   create_table "date_plans", force: :cascade do |t|
@@ -51,7 +58,6 @@ ActiveRecord::Schema.define(version: 2018_07_26_145011) do
     t.string "name"
     t.string "image_url"
     t.string "restaurant_url"
-    t.text "categories_title", default: [], array: true
     t.decimal "rating"
     t.string "coordinates_longitude"
     t.string "coordinates_latitude"
