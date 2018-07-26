@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :restaurants
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :restaurants
-  root 'restaurants#index'
+  root 'welcome#homepage'
 
   get '/welcome', to: 'welcome#homepage'
   get '/welcome/carousel', to: 'welcome#carousel'
