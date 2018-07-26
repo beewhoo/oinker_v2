@@ -29,6 +29,7 @@ namespace :res do
       response_json = response.parse
       puts "= Start Parsing"
 
+      # see from our list of categories if the restaurant has those categories
       response_json['businesses'].each do |resta|
          @restaurant = Restaurant.find_or_create_by(yelp_id: resta["id"])
          our_categories = Category.all
@@ -40,7 +41,8 @@ namespace :res do
            end
          end
 
-         p @restaurant.categories.empty?
+         # remove restaurant from list of restaurants if the categories is empty
+         # move onto the next restaurant
          if @restaurant.categories.empty?
            @restaurant.destroy
            next
