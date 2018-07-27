@@ -1,0 +1,10 @@
+<!-- Show list of top trending restaurants, to uncomment later on to put after "continue as guest" page --> -->
+ <section class="rated_grid">
+
+<%@top_rated_restaurants.each do |resta|%>
+<div class="top_rated_restaurants">
+<%=link_to (image_tag (resta.image_url)), resta.restaurant_url, :target => ":_blank"  %>
+<p><%=resta.name %></p>
+</div>
+<%end%>
+</section>
