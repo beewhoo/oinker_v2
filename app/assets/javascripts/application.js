@@ -23,17 +23,5 @@ document.addEventListener('DOMContentLoaded', function(){
 
 var checkList = document.getElementById('catlist')
 
-if (checkList !== null) {
-var categories = document.querySelector('.categories')
-checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
-  if (categories.classList.contains('visible')){
-    categories.classList.remove('visible');
-  }
-  else {
-    categories.classList.add('visible');
-  }}
-  checkList.onblur = function(evt) {
-    categories.classList.remove('visible');
-  }
-}
+
 });
