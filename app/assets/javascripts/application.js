@@ -18,14 +18,22 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+document.addEventListener('DOMContentLoaded', function(){
+
+
 var checkList = document.getElementById('catlist')
+
+if (checkList !== null) {
+var categories = document.querySelector('.categories')
 checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
-  if (checkList.classList.contains('visible')){
-    checkList.classList.remove('visible');
-  else
-    checkList.classList.add('visible');
+  if (categories.classList.contains('visible')){
+    categories.classList.remove('visible');
   }
+  else {
+    categories.classList.add('visible');
+  }}
   checkList.onblur = function(evt) {
-    checkList.classList.remove('visible');
+    categories.classList.remove('visible');
   }
 }
+});

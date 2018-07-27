@@ -1,14 +1,13 @@
 <div id="catlist" class="dropdown-check-list" tabindex="100">
   <span class="anchor"> Select category </span>
   <ul class="categories">
-
-  <%= form_tag "/restaurants" do %>
+ <%= form_tag "/restaurants" do %>
     <% Category.all.each do |category| %>
       <li class="category_name">
         <%= label_tag(category.category)%>
         <%= check_box_tag(category.category)%>
         <% end %>
-      </li>
+      </li> 
       <button class="submit_button" type= "submit">Submit</button>
   <% end %>
 </ul>
