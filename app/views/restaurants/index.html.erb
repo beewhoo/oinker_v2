@@ -1,63 +1,3 @@
-<<<<<<< HEAD
-<p id="notice"><%= notice %></p>
-
-<h1>Restaurants</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th>Rating</th>
-      <th>coordinates_latitude</th>
-      <th>coordinates_longitude</th>
-      <th>Price</th>
-      <th>Image url</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>restaurant_URL</th>
-      <th>Yelp ID</th>
-      <th>open</th>
-      <th>close</th>
-      <th>day</th>
-
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.image_url %></td>
-        <td><%= restaurant.rating %></td>
-        <td><%= restaurant.coordinates_latitude %></td>
-        <td><%= restaurant.coordinates_longitude %></td>
-        <td><%= restaurant.price %></td>
-        <td><%= restaurant.image_url %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.phone %></td>
-        <td><%= restaurant.restaurant_url %></td>
-        <td><%= restaurant.yelp_id %></td>
-
-        <td><%= restaurant.restaurant_hours.map {|h| h.open} %></td>
-        <td><%= restaurant.restaurant_hours.map {|h| h.close} %></td>
-        <td><%= restaurant.restaurant_hours.map {|h| h.day} %></td>
-
-
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Restaurant', new_restaurant_path %>
-=======
 <div id="catlist" class="dropdown-check-list" tabindex="100">
   <span class="anchor"> Select category </span>
   <ul class="categories">
@@ -75,4 +15,3 @@
   <% end %>
 </ul>
 </div>
->>>>>>> 5071414c1efd3bffed559df869747fb1dcdb462e
