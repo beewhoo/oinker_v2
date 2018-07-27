@@ -1,4 +1,5 @@
 namespace :res do
+
   require 'httparty'
   desc "TODO"
   task store: :environment do
@@ -13,7 +14,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 100
+    while offset < 350
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -30,6 +31,8 @@ namespace :res do
       puts "= Start Parsing"
 
       # see from our list of categories if the restaurant has those categories
+
+
       response_json['businesses'].each do |resta|
          @restaurant = Restaurant.find_or_create_by(yelp_id: resta["id"])
          our_categories = Category.all
@@ -83,33 +86,43 @@ namespace :res do
        offset += 20
      end
 
-  end
 
 
-
-  #
-  # SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
-  # SEATGEEK_HOST='https://api.seatgeek.com/2/events?'
-  # SEATGEEK_CITY='&venue.city=toronto'
-  # SEATGEEK_LISTINGS = '&per_page=25'
-  # SEATGEEK_PRICE='listing_count.gt=0&highest_price.lte=100'
-  #
-  #
-  # puts "= Getting the EVENTS"
-  #
-  # url = "#{SEATGEEK_HOST}#{SEATGEEK_PRICE}#{SEATGEEK_CITY}#{SEATGEEK_LISTINGS}&client_id=#{SEATGEEK_CLIENT_ID}"
-  #
-  #
-  #   response = HTTParty.get(url)
-  #   response_json = JSON.parse(response.body)
-  #   byebug
-  #   puts "= Start Parsing"
-  #
-  #
+ #events ------------------------------------------------------------events
 
 
+        SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
+        SEATGEEK_HOST='https://api.seatgeek.com/2/events?'
+        SEATGEEK_CITY='q=toronto'
+        SEATGEEK_LISTINGS ='&per_page=1'
+        SEATGEEK_PAGE = '&page=1'
+        SEATGEEK_PRICE='&highest_price.lte=200'
 
 
+        puts "= Getting the EVENTS"
 
+          url = "https://api.seatgeek.com/2/events?q=toronto&client_id=#{SEATGEEK_CLIENT_ID}#{SEATGEEK_LISTINGS}#{SEATGEEK_PRICE}"
+
+          response = HTTParty.get(url)
+          response_json = JSON.parse(response.body)
+          # byebu
+
+
+        response_json['events'].each do |res|
+          @event = Event.find_or_create_by(seatgeek_id: res["id"])
+          @event.venue = res['venue']['name']
+          @event.category= res['type']
+          @event.name = res['title']
+
+          @event.date= res['datetime_local']
+          @event.url = res['url']
+          @event.price = res['stats']['average_price']
+          @event.location = res['venue']['address']
+          @event.seatgeek_id = res['id']
+          @event.long = res['venue']['location']['lat']
+          @event.lat = res['venue']['location']['lat']
+          @event.save!
+        end
+    end
 
 end
