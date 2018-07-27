@@ -22,6 +22,9 @@ $( function() {
   });
 
 // CATEGORY CHOICE
+
+var checkList = document.getElementById('catlist')
+
 if (checkList !== null) {
   var categories = document.querySelector('.categories')
   checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {

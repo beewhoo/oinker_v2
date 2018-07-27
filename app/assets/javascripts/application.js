@@ -13,15 +13,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
-//= require jquery_ujs
+//  require jquery
+// require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
 
 document.addEventListener('DOMContentLoaded', function(){
 
-
-var checkList = document.getElementById('catlist')
 
 
 });
