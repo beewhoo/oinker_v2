@@ -4,13 +4,20 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    # @restaurants = Restaurant.all
   end
 
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    respond_to do |format|
+      format.htmml
+      format.json do
+        render json: @restaurant
+      end
+    end
   end
+
 
   # GET /restaurants/new
   def new
