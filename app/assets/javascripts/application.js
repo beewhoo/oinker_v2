@@ -20,6 +20,6 @@
 
 document.addEventListener('DOMContentLoaded', function(){
 
-
+  // var categories = document.getElementByClassName('category_name');
 
 });

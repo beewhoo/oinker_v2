@@ -27,16 +27,35 @@ var checkList = document.getElementById('catlist')
 
 if (checkList !== null) {
   var categories = document.querySelector('.categories')
+
   checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+    evt.stopPropagation()
+
     if (categories.classList.contains('visible')){
       categories.classList.remove('visible');
     }
     else {
       categories.classList.add('visible');
     }}
-    checkList.onblur = function(evt) {
+
+    document.body.addEventListener('click', function(evt) {
       categories.classList.remove('visible');
-    }
+    })
+
+    var checkBox = document.querySelectorAll('.category_name')
+    checkBox.forEach(function(e) {
+      e.addEventListener('click', function(event) {
+        event.stopPropagation();
+      })
+    })
+
+    categories.addEventListener('click', function(evt) {
+      evt.stopPropagation();
+    })
+    // checkList.onblur = function(evt) {
+    //   console.log(evt)
+    //   categories.classList.remove('visible');
+    // }
   };
 
 
