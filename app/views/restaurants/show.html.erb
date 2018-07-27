@@ -1,43 +1,54 @@
+<head>
+<link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
+</head>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
+  <h1 style="color:blue;font-family:Barrio;font-size:300%;"> <%= @restaurant.name %> </h1>
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @restaurant.location %>
+  <strong>Food Type:</strong>
+  <%= @restaurant.categories.map {|cat| cat.category} %>
 </p>
 
 <p>
-  <strong>Categories:</strong>
-  <%= @restaurant.categories %>
-</p>
+  <strong>Rating:</strong>
+  <% @restaurant.rating.to_i.times do  %>
+   <span class="glyphicon glyphicon-star"></span>
+  <% end %>
+  </p>
 
 <p>
   <strong>Price:</strong>
   <%= @restaurant.price %>
 </p>
 
+
 <p>
-  <strong>Open days:</strong>
-  <%= @restaurant.open_days %>
+  <strong>Phone:</strong>
+  <%= @restaurant.phone %>
 </p>
 
 <p>
-  <strong>Hour open:</strong>
-  <%= @restaurant.hour_open %>
+  <img src = '<%= @restaurant.image_url %>' width="50%" height="auto"/>
+</p>
+
+
+<p>
+  <strong>Days Open:</strong>
+  <%= @restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]} %>
 </p>
 
 <p>
-  <strong>Hour close:</strong>
-  <%= @restaurant.hour_close %>
+  <strong>Opening Hours:</strong>
+  <%= @restaurant.restaurant_hours.map {|h| h.open} %>
 </p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= @restaurant.image_url %>
+  <strong>Closing Hours:</strong>
+  <%= @restaurant.restaurant_hours.map {|h| h.close} %>
 </p>
 
 <p>
@@ -46,33 +57,26 @@
 </p>
 
 <p>
-  <strong>Phone:</strong>
-  <%= @restaurant.phone %>
+  <iframe src="https://maps.google.com/maps?q=<%= @restaurant.coordinates_latitude %>,<%= @restaurant.coordinates_longitude %>&hl=en&z=14&amp;output=embed" width="90%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+</p>
+
+
+<p>
+  <strong><a href="<%= @restaurant.restaurant_url %>">Yelp restaurant URL</a></strong>
+</p>
+
+
+<p>
+  <% @restaurant.coordinates_latitude %>
 </p>
 
 <p>
-  <strong>Url restaurant:</strong>
-  <%= @restaurant.url_restaurant %>
+  <% @restaurant.coordinates_longitude %>
 </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @restaurant.rating %>
-</p>
 
 <p>
-  <strong>Lat:</strong>
-  <%= @restaurant.lat %>
-</p>
-
-<p>
-  <strong>Long:</strong>
-  <%= @restaurant.long %>
-</p>
-
-<p>
-  <strong>Yelp:</strong>
-  <%= @restaurant.yelp_id %>
+  <% @restaurant.yelp_id %>
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |

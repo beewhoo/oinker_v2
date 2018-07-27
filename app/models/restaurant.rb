@@ -11,15 +11,12 @@ class Restaurant < ApplicationRecord
     rating = []
     @restaurants = Restaurant.all
       @restaurants.each do |resta|
-        if resta.rating.to_f > 4
+        if resta.rating.to_i > 4
         rating << resta
         end
       end
       return rating.sample(8)
   end
-
-
-
 
 
 end
