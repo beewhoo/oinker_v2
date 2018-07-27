@@ -1,1 +1,6 @@
-<%= @restaurant_list.inspect %>
+<% @restaurant_list.each do |restaurant| %>
+  <div class="individual-chosen-restaurant">
+    <%= link_to (restaurant.name), restaurant_path(restaurant.id) %>
+    <img  class= "individual-chosen-image" src="<%=restaurant.image_url%>" height="180" width="250"/>
+    <% end  %>
+  </div>
