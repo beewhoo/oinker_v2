@@ -1,17 +1,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Slider - Range slider</title>
-  <link rel="stylesheet" href="app/assets/stylesheets/jquery-ui.css">
-  <script src="app/assets/javascripts/jquery-1.12.4.js"></script>
-  <script src="app/assets/javascripts/ui/1.12.1/jquery-ui.js"></script>
+  <title>Budget - Range slider</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
     $( "#slider-range" ).slider({
       range: true,
       min: 0,
-      max: 150,
-      values: [ 10, 50 ],
+      max: 100,
+      values: [ 25, 75 ],
       slide: function( event, ui ) {
         $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
       }
