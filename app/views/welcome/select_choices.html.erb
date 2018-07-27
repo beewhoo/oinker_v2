@@ -19,31 +19,29 @@
 
 
 <!-- CATEGORIES -->
-<div id="catlist" class="dropdown-check-list" tabindex="100">
-  <span class="anchor"> Select category </span>
-  <ul class="categories">
-   <%= form_tag "/restaurants" do %>
+   <%= form_tag "/chosen", method: :get do %>
+   <div id="catlist" class="dropdown-check-list" tabindex="100">
+     <span class="anchor"> Select category </span>
+     <ul class="categories">
       <% Category.all.each do |category| %>
         <li class="category_name">
           <%= label_tag(category.category)%>
-          <%= check_box_tag(category.category)%>
+          <%= check_box_tag("category[#{category.category}]")%>
           <% end %>
         </li>
-      <li>
+      <!-- <li>
         Surprise me!
-      </li>
+      </li> -->
+    </ul>
+  </div>
+      <div id="partysize">
+          <input type='button' value='-' class='qtyminus' field='quantity' />
+          <input type='text' name='quantity' value='0' class='qty' />
+          <input type='button' value='+' class='qtyplus' field='quantity' />
+      </div>
+      <%= submit_tag  %>
     <% end %>
-  </ul>
-</div>
 
 <!-- PARTY SIZE -->
-<div id="partysize">
-<form method='POST' action='#'> Party Size
-    <input type='button' value='-' class='qtyminus' field='quantity' />
-    <input type='text' name='quantity' value='0' class='qty' />
-    <input type='button' value='+' class='qtyplus' field='quantity' />
-</form>
-</div>
 
-<button class="submit_button" type= "submit">Submit</button>
 </body>
