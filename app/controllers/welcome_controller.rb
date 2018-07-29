@@ -5,8 +5,9 @@ class WelcomeController < ApplicationController
   def carousel
   end
 
-  def res_ev_choice
+  def trending 
     @top_rated_restaurants = Restaurant.rating
+    @top_rated_events = Event.rating
   end
 
   def date_choice

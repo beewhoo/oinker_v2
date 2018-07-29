@@ -88,7 +88,7 @@ input.qtyminus { width:2.2em; height:2.2em;}
   margin-bottom: 4em;
 }
 
-// restaurant_rating_top 6
+// restaurant_rating_top 4
 
 .top_rated_restaurants img{
   height: 150px;
@@ -100,5 +100,13 @@ input.qtyminus { width:2.2em; height:2.2em;}
   grid-gap: 0.3em;
   grid-template-columns: 2fr 2fr;
 
+}
+
+// event_rating top 4
+
+.rated_event {
+  display: inline-grid;
+  grid-gap: 0.3em;
+  grid-template-columns: 2fr 2fr;
 
 }

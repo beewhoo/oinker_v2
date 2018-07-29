@@ -8,6 +8,8 @@
    </div>
 
 
+<!--restaurants-->
+
 <section class="rated_grid">
 <%@top_rated_restaurants.each do |resta|%>
 <div class="top_rated_restaurants">
@@ -15,4 +17,18 @@
 <p><%=resta.name %></p>
 </div>
 <%end%>
+</section>
+<!--events -->
+
+
+<section class ='rated_event'>
+<%@top_rated_events.each do |event|%>
+<div class="top_rated_events">
+<p><%=event.name %></p>
+<p><%=event.price %></p>
+<p><%=event.url%></p>
+</div>
+<%end%>
+
+
 </section>
