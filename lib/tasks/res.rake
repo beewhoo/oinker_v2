@@ -1,6 +1,5 @@
 namespace :res do
 
-  require 'httparty'
   desc "TODO"
   task store: :environment do
     API_KEY=ENV['yelp_key']
@@ -14,7 +13,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 350
+    while offset < 1
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -88,7 +87,7 @@ namespace :res do
 
 
 
- #events ------------------------------------------------------------events
+ #events --------------------------Seatgeek----------------------------------events
 
 
         SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
@@ -96,7 +95,7 @@ namespace :res do
         SEATGEEK_CITY='q=toronto'
         SEATGEEK_LISTINGS ='&per_page=1'
         SEATGEEK_PAGE = '&page=1'
-        SEATGEEK_PRICE='&highest_price.lte=200'
+        SEATGEEK_PRICE='&highest_price.lte=2'
 
 
         puts "= Getting the EVENTS"
@@ -104,11 +103,11 @@ namespace :res do
           url = "https://api.seatgeek.com/2/events?q=toronto&client_id=#{SEATGEEK_CLIENT_ID}#{SEATGEEK_LISTINGS}#{SEATGEEK_PRICE}"
 
           response = HTTParty.get(url)
-          response_json = JSON.parse(response.body)
+          response_seat = JSON.parse(response.body)
           # byebu
 
 
-        response_json['events'].each do |res|
+        response_seat['events'].each do |res|
           @event = Event.find_or_create_by(seatgeek_id: res["id"])
           @event.venue = res['venue']['name']
           @event.category= res['type']
@@ -123,6 +122,13 @@ namespace :res do
           @event.lat = res['venue']['location']['lat']
           @event.save!
         end
+
+
+        #event------------------Eventbrite------------------------_#event
+        puts "= Getting into second EVENTS"
+
+
+
     end
 
 end

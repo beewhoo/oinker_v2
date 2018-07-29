@@ -83,3 +83,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 # bootstrap gem
 gem 'bootstrap-sass'
+# devise gem
+gem 'devise-bootstrap-views'
+
+#google button
+gem 'bootstrap-social-rails', '~> 4.8'
