@@ -23,14 +23,14 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-        <td><%= event.date %></td>
-        <td><%= event.location %></td>
         <td><%= event.category %></td>
-        <td><%= event.url %></td>
+        <td><%= event.date %></td>
         <td><%= event.price %></td>
+        <td><%= event.venue %></td>
+        <td><%= event.location %></td>
+        <td><%= event.url %></td>
         <td><%= event.lat %></td>
         <td><%= event.long %></td>
-        <td><%= event.venue %></td>
         <td><%= event.seatgeek_id %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
