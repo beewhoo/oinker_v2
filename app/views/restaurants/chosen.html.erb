@@ -1,0 +1,19 @@
+<h1> Here is a list of three restaurants you have chosen from the categories:
+  <% @category.each do |cat|%>
+  <%= cat %>
+  <% end %>
+</h1>
+
+<% list=[] %>
+<% @restaurant_list.each do |restaurant| %>
+  <div class="individual-chosen-restaurant">
+    <!-- <% list << restaurant %> -->
+    <% end  %>
+  </div>
+
+  <% list.sample(3).each do |restaurant| %>
+    <%= link_to (restaurant.name), restaurant_path(restaurant.id) %>
+    <img  class= "individual-chosen-image" src="<%=restaurant.image_url%>" height="180" width="250"/>
+  </br>
+</br>
+<% end %>

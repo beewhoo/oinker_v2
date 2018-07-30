@@ -1,0 +1,47 @@
+
+
+<!-- DATE CHOICE -->
+  <h1>Pick a date for yo Date!</h1>
+  <p>Date: <input type="text" id="datepicker"></p>
+
+<!-- BUDGET CHOICE -->
+<H1>HOW CHEAP ARE YOU?</H1>
+<p>
+  <label for="amount">Price range:</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+<div id="slider-range"></div>
+
+<!-- LOCATION CHOICE -->
+<form id='postalcode' method='POST' action='#'> Postal code:
+    <input type='text' id="mypost" name='quantity' placeholder="M5V 1B7" class='pstbox' />
+</form>
+
+
+<!-- CATEGORIES -->
+   <%= form_tag "/chosen", method: :get do %>
+   <div id="catlist" class="dropdown-check-list" tabindex="100">
+     <span class="anchor"> Select category </span>
+     <ul class="categories">
+      <% Category.all.each do |category| %>
+        <li class="category_name">
+          <%= label_tag(category.category)%>
+          <%= check_box_tag("category[#{category.category}]")%>
+          <% end %>
+        </li>
+      <!-- <li>
+        Surprise me!
+      </li> -->
+    </ul>
+  </div>
+      <div id="partysize">
+          <input type='button' value='-' class='qtyminus' field='quantity' />
+          <input type='text' name='quantity' value='0' class='qty' />
+          <input type='button' value='+' class='qtyplus' field='quantity' />
+      </div>
+      <%= submit_tag  %>
+    <% end %>
+
+<!-- PARTY SIZE -->
+
+</body>

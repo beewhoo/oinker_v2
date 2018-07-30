@@ -13,27 +13,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
-//= require jquery_ujs
+//  require jquery
+// require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
 
 document.addEventListener('DOMContentLoaded', function(){
 
+  // var categories = document.getElementByClassName('category_name');
 
-var checkList = document.getElementById('catlist')
-
-if (checkList !== null) {
-var categories = document.querySelector('.categories')
-checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
-  if (categories.classList.contains('visible')){
-    categories.classList.remove('visible');
-  }
-  else {
-    categories.classList.add('visible');
-  }}
-  checkList.onblur = function(evt) {
-    categories.classList.remove('visible');
-  }
-}
 });
