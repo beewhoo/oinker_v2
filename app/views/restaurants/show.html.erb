@@ -18,6 +18,9 @@
   <% @restaurant.rating.to_i.times do  %>
    <span class="glyphicon glyphicon-star"></span>
   <% end %>
+  <% @restaurant.blank_stars.times do %>
+   <span class="glyphicon glyphicon-star-empty"></span>
+  <% end %>
   </p>
 
 <p>
