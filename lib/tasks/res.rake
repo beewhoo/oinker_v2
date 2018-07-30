@@ -93,9 +93,9 @@ namespace :res do
         SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
         SEATGEEK_HOST='https://api.seatgeek.com/2/events?'
         SEATGEEK_CITY='q=toronto'
-        SEATGEEK_LISTINGS ='&per_page=1'
+        SEATGEEK_LISTINGS ='&listing_count.gt=0&per_page=300'
         SEATGEEK_PAGE = '&page=1'
-        SEATGEEK_PRICE='&highest_price.lte=2'
+        SEATGEEK_PRICE='&highest_price.lte=200'
 
 
         puts "= Getting the EVENTS"
@@ -104,7 +104,6 @@ namespace :res do
 
           response = HTTParty.get(url)
           response_seat = JSON.parse(response.body)
-          # byebu
 
 
         response_seat['events'].each do |res|
@@ -118,8 +117,15 @@ namespace :res do
           @event.price = res['stats']['average_price']
           @event.location = res['venue']['address']
           @event.seatgeek_id = res['id']
-          @event.long = res['venue']['location']['lat']
+          @event.long = res['venue']['location']['lon']
           @event.lat = res['venue']['location']['lat']
+
+            if res['performers'].first['image'] == nil
+              @event.image_url = 'https://d1ic4altzx8ueg.cloudfront.net/finder-us/wp-uploads/2017/08/SeatGeek-featuredimagelogo.jpg'
+            else
+              @event.image_url = res['performers'].first['image']
+            end
+
           @event.save!
         end
 
