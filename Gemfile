@@ -88,3 +88,7 @@ gem 'devise-bootstrap-views'
 
 #google button
 gem 'bootstrap-social-rails', '~> 4.8'
+
+#currency conversion
+
+gem 'google_currency', '~> 3.3'

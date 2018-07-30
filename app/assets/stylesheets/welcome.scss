@@ -59,92 +59,84 @@ input.qtyminus { width:2.2em; height:2.2em;}
 
 }
 
+// carousel drop down
 
-// res_ev_choice
 
-
-.button {
-    position: relative;
-    background-color: #43c2c1;
-    font-size: 2em;
-    color: #FFFFFF;
-    padding: 0.3em;
-    width: 300px;
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
-    display: inline-block;
-    margin: 0.3em;
-    text-align: center;
-    border-radius: 0.3em;
+.carousel {
+  background-color: grey;
 }
 
-.button:hover {
-  background-color:#aaa;
+.carousel-image {
+  width: 340px;
+  height: 510px;
 }
 
-.choices {
-  margin-bottom: 4em;
+.category_name {
+  list-style-type: none;
 }
+
+.dropdown-check-list {
+  display: inline-block;
+}
+
+.dropdown-check-list .anchor {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 50px 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-check-list .anchor:after {
+  position: absolute;
+  content: "";
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  padding: 5px;
+  right: 10px;
+  top: 20%;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.dropdown-check-list .anchor:active:after {
+  right: 8px;
+  top: 21%;
+}
+
+.dropdown-check-list.visible .anchor {
+  color: #0094ff;
+}
+
+.dropdown-check-list.visible .items {
+  display: block;
+}
+
+.categories {
+  display: none;
+}
+
+.visible {
+  display:block;
+}
+
+
 
 // top rated events and restaurants
 
-
 .rated_restaurant, .rated_event{
   display: inline-grid;
-  grid-gap: 0.3em;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  margin-bottom: 2em;
+  margin-top: 2em;
 
 }
-
 
 .top_rated_events img, .top_rated_restaurants img{
-  height: 150px;
-  width:150px;
+  height: 200px;
+  width:200px;
   border:1px solid black;
-}
-
-//test
-.page {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.section {
-  width: 100%;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.menu {
-  background-color: #5995DA;
-  height: 80px;
-}
-
-.header {
-  background-color: #B2D6FF;
-}
-
-.content {
-  background-color: #EAEDF0;
-  height: 600px;
-}
-
-.sign-up {
-  background-color: #D6E9FE;
-}
-
-.feature-1 {
-  background-color: #F5CF8E;
-}
-
-.feature-2 {
-  background-color: #F09A9D;
-}
-
-.feature-3 {
-  background-color: #C8C6FA;
 }
