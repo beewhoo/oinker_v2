@@ -9,6 +9,10 @@
 </p>
 
 <p>
+  <img src = '<%= @event.image_url %>' width="50%" height="auto"/>
+</p>
+
+<p>
   <strong>Event type:</strong>
   <%= @event.category %>
 </p>
@@ -25,6 +29,13 @@
 
 <p>
   <strong><a href="<%= @event.url %>">Get tix here</a></strong>
+</p>
+
+<p>
+  OR HERE!:
+</p>
+<p>
+<iframe src="<%= @event.url %>"width="90%" height="400" frameborder="0" style="border:0" scrolling="yes" allowfullscreen></iframe>
 </p>
 
 <p>

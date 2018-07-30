@@ -10,7 +10,7 @@
 
 <p>
   <strong>Food Type:</strong>
-  <%= @restaurant.categories.map {|cat| cat.category} %>
+  <%= @show_cat.first %>
 </p>
 
 <p>
@@ -35,23 +35,27 @@
 </p>
 
 <p>
+  <strong><a href="<%= @restaurant.restaurant_url %>">Yelp restaurant URL</a></strong>
+</p>
+
+<p>
   <img src = '<%= @restaurant.image_url %>' width="50%" height="auto"/>
 </p>
 
 
 <p>
   <strong>Days Open:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]} %>
+  <%= @rest_days_open %>
 </p>
 
 <p>
   <strong>Opening Hours:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| h.open} %>
+  <%= @rest_time_open %>
 </p>
 
 <p>
   <strong>Closing Hours:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| h.close} %>
+  <%= @rest_time_closed %>
 </p>
 
 <p>
@@ -64,9 +68,6 @@
 </p>
 
 
-<p>
-  <strong><a href="<%= @restaurant.restaurant_url %>">Yelp restaurant URL</a></strong>
-</p>
 
 <p>
   <% @restaurant.yelp_id %>
