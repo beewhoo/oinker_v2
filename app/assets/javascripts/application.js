@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //  require jquery
 // require jquery_ujs
 //= require bootstrap-sprockets
@@ -21,5 +20,13 @@
 document.addEventListener('DOMContentLoaded', function(){
 
   // var categories = document.getElementByClassName('category_name');
+
+
+  $("#menu-toggle").click(function(e) {
+   e.preventDefault();
+   $("#wrapper").toggleClass("toggled");
+  });
+
+
 
 });
