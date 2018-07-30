@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
 
   resources :events
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
 
   get '/welcome', to: 'welcome#homepage'
   get '/welcome/choice', to: 'welcome#select_choices'
-  get '/welcome/trending', to: 'welcome#trending'
-
   get '/chosen', to: 'restaurants#chosen'
+  get '/welcome/trending', to: 'welcome#trending' 
 end

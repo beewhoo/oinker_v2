@@ -79,3 +79,22 @@
 .visible {
   display:block;
 }
+
+
+.google_login img {
+  max-width:250px;
+}
+
+
+
+.login_logout {
+  text-align: right;
+  border-bottom: 1px solid grey;
+  padding-right: 0.7em;
+  padding-top: 0.2em;
+}
+
+.login_logout img {
+  max-width: 30px;
+  border-radius: 50%;
+}

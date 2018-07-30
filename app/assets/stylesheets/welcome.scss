@@ -88,25 +88,63 @@ input.qtyminus { width:2.2em; height:2.2em;}
   margin-bottom: 4em;
 }
 
-// restaurant_rating_top 4
+// top rated events and restaurants
 
-.top_rated_restaurants img{
+
+.rated_restaurant, .rated_event{
+  display: inline-grid;
+  grid-gap: 0.3em;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+
+.top_rated_events img, .top_rated_restaurants img{
   height: 150px;
   width:150px;
+  border:1px solid black;
 }
 
-.rated_grid{
-  display: inline-grid;
-  grid-gap: 0.3em;
-  grid-template-columns: 2fr 2fr;
-
+//test
+.page {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-// event_rating top 4
+.section {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.rated_event {
-  display: inline-grid;
-  grid-gap: 0.3em;
-  grid-template-columns: 2fr 2fr;
+.menu {
+  background-color: #5995DA;
+  height: 80px;
+}
 
+.header {
+  background-color: #B2D6FF;
+}
+
+.content {
+  background-color: #EAEDF0;
+  height: 600px;
+}
+
+.sign-up {
+  background-color: #D6E9FE;
+}
+
+.feature-1 {
+  background-color: #F5CF8E;
+}
+
+.feature-2 {
+  background-color: #F09A9D;
+}
+
+.feature-3 {
+  background-color: #C8C6FA;
 }

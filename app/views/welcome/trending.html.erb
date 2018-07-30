@@ -1,4 +1,4 @@
-<!-- Show list of top trending restaurants, to uncomment later on to put after "continue as guest" page --> -->
+<!-- Show list of top trending restaurants, to uncomment later on to put after "continue as guest" page -->
 
    <div class="choices">
    <h1>Pick your plans</h1>
@@ -10,25 +10,54 @@
 
 <!--restaurants-->
 
-<section class="rated_grid">
+<h4>Top rated Restaurants</h4>
+
+<section class="rated_restaurant">
 <%@top_rated_restaurants.each do |resta|%>
 <div class="top_rated_restaurants">
 <%=link_to (image_tag (resta.image_url)), resta.restaurant_url, :target => ":_blank"  %>
-<p><%=resta.name %></p>
+<p><%=resta.name[0..10] %></p>
 </div>
 <%end%>
 </section>
 <!--events -->
-
+<h4>Top Rated Events</h4>
 
 <section class ='rated_event'>
 <%@top_rated_events.each do |event|%>
 <div class="top_rated_events">
-<p><%=event.name %></p>
-<p><%=event.price %></p>
-<p><%=event.url%></p>
+<%=link_to (image_tag (event.image_url)), event.url, :target => ":_blank"  %>
+<p><%=event.category.split('_').map(&:capitalize).join(' ') %></p>
+<p>$<%=event.price %></p>
 </div>
 <%end%>
 
 
 </section>
+
+<div class='page'>
+  <div class='section menu'></div>
+  <div class='section header'>
+    <img src='images/header.svg'/>
+  </div>
+  <div class='section content'>
+    <img src='images/content.svg'/>
+  </div>
+  <div class='section sign-up'>
+    <img src='images/sign-up.svg'/>
+  </div>
+  <div class='section feature-1'>
+    <img src='images/feature.svg'/>
+  </div>
+  <div class='section feature-2'>
+    <img src='images/feature.svg'/>
+  </div>
+  <div class='section feature-3'>
+    <img src='images/feature.svg'/>
+  </div>
+  <div class='section feature-4'>
+    <img src='images/feature.svg'/>
+  </div>
+  <div class='section feature-3'>
+    <img src='images/feature.svg'/>
+</div>s

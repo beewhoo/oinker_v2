@@ -13,7 +13,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 200
+    while offset < 1
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -104,7 +104,6 @@ namespace :res do
 
           response = HTTParty.get(url)
           response_seat = JSON.parse(response.body)
-          # byebu
 
 
         response_seat['events'].each do |res|
@@ -118,8 +117,15 @@ namespace :res do
           @event.price = res['stats']['average_price']
           @event.location = res['venue']['address']
           @event.seatgeek_id = res['id']
-          @event.long = res['venue']['location']['lat']
+          @event.long = res['venue']['location']['lon']
           @event.lat = res['venue']['location']['lat']
+
+            if res['performers'].first['image'] == nil
+              @event.image_url = 'https://d1ic4altzx8ueg.cloudfront.net/finder-us/wp-uploads/2017/08/SeatGeek-featuredimagelogo.jpg'
+            else
+              @event.image_url = res['performers'].first['image']
+            end
+
           @event.save!
         end
 
