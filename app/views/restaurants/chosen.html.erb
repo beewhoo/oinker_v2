@@ -1,13 +1,13 @@
 <h1> Here is a list of three restaurants you have chosen from the categories:
   <% @category.each do |cat|%>
-<%= cat %>
+  <%= cat %>
   <% end %>
 </h1>
 
 <% list=[] %>
 <% @restaurant_list.each do |restaurant| %>
   <div class="individual-chosen-restaurant">
-    <% list << restaurant %>
+    <!-- <% list << restaurant %> -->
     <% end  %>
   </div>
 
