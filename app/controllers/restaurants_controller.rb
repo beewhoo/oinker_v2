@@ -13,10 +13,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
-  def chosen
-    @category = params["category"].keys
-    @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
-  end
+  # def chosen
+  #   @category = params["category"].keys
+  #   @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
+  # end
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new

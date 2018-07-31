@@ -5,16 +5,16 @@
   <%= cat %>
   <% end %>
   for <%= @date.strftime('%A, %b %e %Y' ) %>
-
+  with a total price for <%= @quantity %> people of $<%= @price_max * @quantity %>
 </h1>
 
 
 <% list=[] %>
-<% @restaurant_list.each do |restaurant| %>
+<% @restaurant_priced_list.each do |restaurant| %>
   <div class="individual-chosen-restaurant">
     <% days_open = restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]} %>
     <% days_open.each do |day| %>
-      <% if day == @date.strftime('%A')%>
+      <% if day == @date.strftime('%A') && restaurant.price.to_i < @price_max%>
       <% list << restaurant %>
       <% end %>
     <% end %>

@@ -6,11 +6,12 @@ class DatePlanController < ApplicationController
   def plan
     @date_plan = DatePlan.new
     @date = Date.strptime(params['date'], '%m/%d/%Y')
-    @quantity = params['quantity']
+    @quantity = params['quantity'].to_i
     @category = params["category"].keys
-    @price_max = params['price_max']
+    @price_max = params['price_max'].to_i
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
-    @restaurant_hours = restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]}
+    @restaurant_priced_list = real_price(@restaurant_list)
+    console
   end
 
   private

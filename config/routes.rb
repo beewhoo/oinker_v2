@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   get '/welcome', to: 'welcome#homepage'
   get '/welcome/choice', to: 'welcome#select_choices'
-  # get '/chosen', to: 'restaurants#chosen'
   get '/welcome/trending', to: 'welcome#trending'
   get '/date_plan', to: 'date_plan#plan'
 end
