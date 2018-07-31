@@ -3,15 +3,17 @@ require 'date'
 class DatePlanController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def plan
+  def date_plan
     @date_plan = DatePlan.new
+  end
+
+  def plan
     @date = Date.strptime(params['date'], '%m/%d/%Y')
     @quantity = params['quantity'].to_i
     @category = params["category"].keys
     @price_max = params['price_max'].to_i
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
     real_price(@restaurant_list)
-    console
   end
 
   private

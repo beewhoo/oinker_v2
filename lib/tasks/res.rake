@@ -13,7 +13,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 100
+    while offset < 200
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -37,7 +37,6 @@ namespace :res do
          @restaurant = Restaurant.find_or_create_by(yelp_id: resta["id"])
          our_categories = Category.all
          our_categories.each do |category|
-           puts 'inside the loop'
            resta["categories"].each do |h|
              if h["title"] == category.category
                @restaurant.categories << category
@@ -134,7 +133,7 @@ namespace :res do
 
         #event------------------Eventbrite------------------------_#event
         puts "= Getting into second EVENTS"
-        
+
 
 
     end
