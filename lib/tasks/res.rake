@@ -202,7 +202,6 @@ namespace :res do
                 puts "VENUE#{@event.venue}"
             puts '------------------------------------------------------------------------'
           end
->>>>>>> 67c134763ae761fe2db2fbda96b57e18e3ca230f
 
     end
 
