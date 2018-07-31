@@ -10,13 +10,16 @@
 
 <p>
   <strong>Food Type:</strong>
-  <%= @restaurant.categories.map {|cat| cat.category} %>
+  <%= @show_cat.first %>
 </p>
 
 <p>
   <strong>Rating:</strong>
   <% @restaurant.rating.to_i.times do  %>
    <span class="glyphicon glyphicon-star"></span>
+  <% end %>
+  <% @restaurant.blank_stars.times do %>
+   <span class="glyphicon glyphicon-star-empty"></span>
   <% end %>
   </p>
 
@@ -32,23 +35,24 @@
 </p>
 
 <p>
+  <strong><a href="<%= @restaurant.restaurant_url %>">Yelp restaurant URL</a></strong>
+</p>
+
+<p>
   <img src = '<%= @restaurant.image_url %>' width="50%" height="auto"/>
 </p>
 
-
 <p>
-  <strong>Days Open:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]} %>
-</p>
-
-<p>
-  <strong>Opening Hours:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| h.open} %>
-</p>
-
-<p>
-  <strong>Closing Hours:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| h.close} %>
+<h4><b>HOURS:</b></h4>
+<% @rest_days_open.each_with_index do |name, index| %>
+    <tr>
+      <br>
+      <td><b><%= name %></b><td>:
+      <td><%= @rest_time_open[index].insert(2, ':').to_time.strftime("%I:%M %p")%></td>
+      -
+      <td><%= @rest_time_closed[index].insert(2, ':').to_time.strftime("%I:%M %p")%></td>
+    </tr>
+  <% end %>
 </p>
 
 <p>
@@ -60,19 +64,6 @@
   <iframe src="https://maps.google.com/maps?q=<%= @restaurant.coordinates_latitude %>,<%= @restaurant.coordinates_longitude %>&hl=en&z=14&amp;output=embed" width="90%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
 </p>
 
-
-<p>
-  <strong><a href="<%= @restaurant.restaurant_url %>">Yelp restaurant URL</a></strong>
-</p>
-
-
-<p>
-  <% @restaurant.coordinates_latitude %>
-</p>
-
-<p>
-  <% @restaurant.coordinates_longitude %>
-</p>
 
 
 <p>

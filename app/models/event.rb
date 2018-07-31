@@ -6,7 +6,7 @@ class Event < ApplicationRecord
       rating = []
       @events = Event.all
         @events.each do |event|
-          if event.price < 50
+          if event.price.to_i < 50
           rating << event
           end
         end

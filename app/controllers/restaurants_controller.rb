@@ -11,6 +11,10 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id])
+    @show_cat = @restaurant.categories.collect {|cat| cat.category}
+    @rest_days_open = @restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]}
+    @rest_time_open = @restaurant.restaurant_hours.map {|h| h.open}
+    @rest_time_closed = @restaurant.restaurant_hours.map {|h| h.close}
   end
 
   # def chosen

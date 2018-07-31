@@ -5,6 +5,7 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Project</title>
@@ -16,6 +17,12 @@
   </head>
 
   <div class="login_logout">
+    <div id="menuToggle">
+      <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+      <!-- <img src="http://pixsector.com/cache/f5c37214/av089223b78f583a8e8d6.png" width= '75px' alt=""> -->
+     </a>
+   </div>
+
   <% if current_user %>
     | <%= link_to('Logout', destroy_user_session_path, :method => :delete)%></p>
   <%elsif%>
@@ -29,7 +36,4 @@
     <div class="notice"><%= flash[:notice] %></div>
     <% end %>
 
-  <body>
-    <%= yield %>
-  </body>
 </html>
