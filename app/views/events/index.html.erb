@@ -6,15 +6,15 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Date</th>
-      <th>Location</th>
       <th>Category</th>
-      <th>URL</th>
+      <th>Date</th>
       <th>Price</th>
-      <th>Lat</th>
+      <th>Venue</th>
+      <th>Location</th>
+      <th>URL</th>
+      <th>LAT</th>
       <th>Long</th>
-      <th>venue</th>
-      <th>seatgeek_id</th>
+      <th>API-id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -31,12 +31,9 @@
         <td><%= event.url %></td>
         <td><%= event.lat %></td>
         <td><%= event.long %></td>
-<<<<<<< HEAD
-        <td><%= event.venue %></td>
         <td><%= event.api_id %></td>
-=======
-        <td><%= event.seatgeek_id %></td>
->>>>>>> bfce7236b90543e12254f1741c9f34223d821fa9
+
+
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
