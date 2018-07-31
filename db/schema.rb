@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_203658) do
     t.string "lat"
     t.string "long"
     t.string "venue"
-    t.integer "seatgeek_id"
+    t.bigint "api_id"
     t.string "image_url"
   end
 
