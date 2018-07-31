@@ -1,19 +1,57 @@
+<head>
+<link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
+</head>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @event.name %>
+  <h1 style="color:blue;font-family:Barrio;font-size:300%;"> <%= @event.name %> </h1>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <img src = '<%= @event.image_url %>' width="50%" height="auto"/>
+</p>
+
+<p>
+  <strong>Event type:</strong>
+  <%= @event.category %>
+</p>
+
+<p>
+  <strong>Event Date:</strong>
   <%= @event.date %>
 </p>
 
 <p>
+  <strong>Avg Ticket Price:</strong>
+  <%= @event.price %>
+</p>
+
+<p>
+  <strong><a href="<%= @event.url %>">Get tix here</a></strong>
+</p>
+
+<p>
+  OR HERE!:
+</p>
+<p>
+<iframe src="<%= @event.url %>"width="90%" height="400" frameborder="0" style="border:0" scrolling="yes" allowfullscreen></iframe>
+</p>
+
+<p>
   <strong>Location:</strong>
+  <%= @event.venue %>
   <%= @event.location %>
 </p>
+
+<p>
+  <iframe src="https://maps.google.com/maps?q=<%= @event.lat %>,<%= @event.long %>&hl=en&z=14&amp;output=embed" width="90%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+</p>
+
+<p>
+  <% @event.seatgeek_id %>
+</p>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

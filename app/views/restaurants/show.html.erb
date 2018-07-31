@@ -10,13 +10,16 @@
 
 <p>
   <strong>Food Type:</strong>
-  <%= @restaurant.categories.map {|cat| cat.category} %>
+  <%= @show_cat.first %>
 </p>
 
 <p>
   <strong>Rating:</strong>
   <% @restaurant.rating.to_i.times do  %>
    <span class="glyphicon glyphicon-star"></span>
+  <% end %>
+  <% @restaurant.blank_stars.times do %>
+   <span class="glyphicon glyphicon-star-empty"></span>
   <% end %>
   </p>
 
@@ -32,23 +35,27 @@
 </p>
 
 <p>
+  <strong><a href="<%= @restaurant.restaurant_url %>">Yelp restaurant URL</a></strong>
+</p>
+
+<p>
   <img src = '<%= @restaurant.image_url %>' width="50%" height="auto"/>
 </p>
 
 
 <p>
   <strong>Days Open:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]} %>
+  <%= @rest_days_open %>
 </p>
 
 <p>
   <strong>Opening Hours:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| h.open} %>
+  <%= @rest_time_open %>
 </p>
 
 <p>
   <strong>Closing Hours:</strong>
-  <%= @restaurant.restaurant_hours.map {|h| h.close} %>
+  <%= @rest_time_closed %>
 </p>
 
 <p>
@@ -60,19 +67,6 @@
   <iframe src="https://maps.google.com/maps?q=<%= @restaurant.coordinates_latitude %>,<%= @restaurant.coordinates_longitude %>&hl=en&z=14&amp;output=embed" width="90%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
 </p>
 
-
-<p>
-  <strong><a href="<%= @restaurant.restaurant_url %>">Yelp restaurant URL</a></strong>
-</p>
-
-
-<p>
-  <% @restaurant.coordinates_latitude %>
-</p>
-
-<p>
-  <% @restaurant.coordinates_longitude %>
-</p>
 
 
 <p>

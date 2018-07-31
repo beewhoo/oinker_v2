@@ -13,7 +13,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 1
+    while offset < 100
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -29,6 +29,7 @@ namespace :res do
       response_json = response.parse
       puts "= Start Parsing"
 
+
       # see from our list of categories if the restaurant has those categories
 
 
@@ -36,6 +37,7 @@ namespace :res do
          @restaurant = Restaurant.find_or_create_by(yelp_id: resta["id"])
          our_categories = Category.all
          our_categories.each do |category|
+           puts 'inside the loop'
            resta["categories"].each do |h|
              if h["title"] == category.category
                @restaurant.categories << category
@@ -131,6 +133,7 @@ namespace :res do
         end
 
 
+<<<<<<< HEAD
         puts '------------------Eventbrite------------------------'
 
             url = 'https://www.eventbriteapi.com/v3/events/search/?token=X23FKITQCHRKGAKADTU4&location.latitude=43.644&location.longitude=-79.409&location.within=50km'
@@ -190,6 +193,11 @@ namespace :res do
 
             #save
             @event.save
+=======
+        #event------------------Eventbrite------------------------_#event
+        puts "= Getting into second EVENTS"
+        
+>>>>>>> bfce7236b90543e12254f1741c9f34223d821fa9
 
                 puts "NAME#{@event.name}"
                 puts "PRICE#{@event.price}"
