@@ -3,8 +3,21 @@ require 'date'
 class DatePlanController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def date_plan
+  def new
     @date_plan = DatePlan.new
+  end
+
+  def create
+    @date_plan = DatePlan.new
+    @date_plan.restaurant_id = params["restaurant"]
+    @date_plan.user_id = current_user.id
+
+    if @date_plan.save
+      redirect_to user_url(current_user.id)
+    else
+      flash[:notice] = "You have to select a restaurant to save your date plan!"
+      redirect_back fallback_location: @post
+    end
   end
 
   def plan

@@ -17,7 +17,6 @@
 
   <div class="login_logout">
   <% if current_user %>
-    <p><%=image_tag(current_user.picture)%>
     | <%= link_to('Logout', destroy_user_session_path, :method => :delete)%></p>
   <%elsif%>
   <p> <%=link_to('Login', new_user_session_path)%>
@@ -26,6 +25,9 @@
 
   <%end%>
     </div>
+    <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
 
   <body>
     <%= yield %>
