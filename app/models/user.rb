@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :restaurants, through: :date_plan
   has_many :events, through: :date_plan
 
+  validates :picture, :first_name, :last_name, presence: true
+
 
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable,

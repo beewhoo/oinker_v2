@@ -17,6 +17,23 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+      <div class="form-group">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :picture, 'Picture URL' %>
+        <%= f.url_field :picture, class: 'form-control' %>
+      </div>
+
+
+
+
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
     <% end %>
   </div>
