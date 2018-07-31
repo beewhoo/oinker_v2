@@ -133,10 +133,11 @@ namespace :res do
         end
 
 
-<<<<<<< HEAD
+
         puts '------------------Eventbrite------------------------'
 
-            url = 'https://www.eventbriteapi.com/v3/events/search/?token=X23FKITQCHRKGAKADTU4&location.latitude=43.644&location.longitude=-79.409&location.within=50km'
+            eventbrite_client=ENV['EVENTBRITE_CLIENT_ID']
+            url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km"
             response = HTTParty.get(url)
             response_eventbrite = JSON.parse(response.body)
 
@@ -152,13 +153,13 @@ namespace :res do
               end
 
 
-            url_second = "https://www.eventbriteapi.com/v3/venues/#{event['venue_id']}/?token=X23FKITQCHRKGAKADTU4"
+            url_second = "https://www.eventbriteapi.com/v3/venues/#{event['venue_id']}/?token=#{eventbrite_client}"
             response_second_call = HTTParty.get(url_second)
 
-            url_third = "https://www.eventbriteapi.com/v3/categories/#{event['category_id']}/?token=X23FKITQCHRKGAKADTU4"
+            url_third = "https://www.eventbriteapi.com/v3/categories/#{event['category_id']}/?token=#{eventbrite_client}"
             response_third_call = HTTParty.get(url_third)
 
-            url_fourth = "https://www.eventbriteapi.com/v3/events/#{event['id']}/ticket_classes/?token=X23FKITQCHRKGAKADTU4"
+            url_fourth = "https://www.eventbriteapi.com/v3/events/#{event['id']}/ticket_classes/?token=#{eventbrite_client}"
             response_fourth_call = HTTParty.get(url_fourth)
 
             @event = Event.find_or_create_by(api_id: event["id"])
@@ -193,17 +194,14 @@ namespace :res do
 
             #save
             @event.save
-=======
-        #event------------------Eventbrite------------------------_#event
-        puts "= Getting into second EVENTS"
-        
->>>>>>> bfce7236b90543e12254f1741c9f34223d821fa9
 
+            puts '----------------------event brite--------------------------------------'
                 puts "NAME#{@event.name}"
                 puts "PRICE#{@event.price}"
                 puts "LOCATION#{@event.location}"
                 puts "CATEGORY#{@event.category}"
                 puts "VENUE#{@event.venue}"
+            puts '------------------------------------------------------------------------'
           end
 
     end
