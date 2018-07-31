@@ -8,15 +8,16 @@
 
 </h1>
 
+
 <% list=[] %>
 <% @restaurant_list.each do |restaurant| %>
   <div class="individual-chosen-restaurant">
     <% days_open = restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]} %>
     <% days_open.each do |day| %>
-      <% if day == @date.strftime('%A') %>
+      <% if day == @date.strftime('%A')%>
       <% list << restaurant %>
       <% end %>
-    <% end %>  
+    <% end %>
 <% end  %>
   </div>
 

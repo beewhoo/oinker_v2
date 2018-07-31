@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  skip_before_action :authenticate_user! 
+  skip_before_action :authenticate_user!
 
   # GET /restaurants
   # GET /restaurants.json
