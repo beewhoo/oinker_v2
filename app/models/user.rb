@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :date_plans
   has_many :restaurants, through: :date_plan
-  has_many :events, through: :date_plan
+  # has_many :events, through: :date_plan
 
   validates :picture, :first_name, :last_name, presence: true
 

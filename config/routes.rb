@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get '/welcome/choice', to: 'welcome#select_choices'
   get '/welcome/trending', to: 'welcome#trending'
   get '/date_plan', to: 'date_plan#plan'
+  post '/date_plan', to: 'date_plan#create'
+  get '/user', to: 'user#show'
+
 end

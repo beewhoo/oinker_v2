@@ -1,6 +1,6 @@
 class DatePlan < ApplicationRecord
-  belongs_to :events
-  belongs_to :restaurants
+  # belongs_to :event
+  belongs_to :restaurant
   belongs_to :user
 
 
