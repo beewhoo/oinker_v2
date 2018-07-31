@@ -24,11 +24,7 @@
    </div>
 
   <% if current_user %>
-<<<<<<< HEAD
   <p>Hello <%= current_user.first_name %> | <%=link_to('Logout', destroy_user_session_path, :method => :delete)%></p>
-=======
-    | <%= link_to('Logout', destroy_user_session_path, :method => :delete)%></p>
->>>>>>> 6db179a12730ed7d8888c7f9b953af7f745729c8
   <%elsif%>
   <p>Hello Guest!
   |

@@ -132,10 +132,7 @@ namespace :res do
         end
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 6db179a12730ed7d8888c7f9b953af7f745729c8
         puts '------------------Eventbrite------------------------'
 
             eventbrite_client=ENV['EVENTBRITE_CLIENT_ID']
