@@ -16,7 +16,7 @@ class DatePlanController < ApplicationController
       redirect_to user_url(current_user.id)
     else
       flash[:notice] = "You have to select a restaurant to save your date plan!"
-      redirect_back fallback_location: @post
+      redirect_back fallback_location: @post 
     end
   end
 
