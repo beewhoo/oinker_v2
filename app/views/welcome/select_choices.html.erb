@@ -1,25 +1,21 @@
 
 
 <!-- DATE CHOICE -->
-  <h1>Pick a date for yo Date!</h1>
-  <p>Date: <input type="text" id="datepicker"></p>
+  <h2>Pick a date for yo Date!</h2>
+  <%= form_tag "/date_plan", method: :get do %>
+    <p>Date: <input type="text" id="datepicker" name="date"></p>
 
 <!-- BUDGET CHOICE -->
-<H1>HOW CHEAP ARE YOU?</H1>
-<p>
-  <label for="amount">Price range:</label>
-  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-</p>
-<div id="slider-range"></div>
+  <h2>HOW CHEAP ARE YOU?</h2>
+  <p>
+   <label for="amount">Max amount per person:</label>
+   <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;" name= "price_max">
+  </p>
+<div id="slider-range-max"></div>
 
-<!-- LOCATION CHOICE -->
-<form id='postalcode' method='POST' action='#'> Postal code:
-    <input type='text' id="mypost" name='quantity' placeholder="M5V 1B7" class='pstbox' />
-</form>
 
 
 <!-- CATEGORIES -->
-   <%= form_tag "/chosen", method: :get do %>
    <div id="catlist" class="dropdown-check-list" tabindex="100">
      <span class="anchor"> Select category </span>
      <ul class="categories">
@@ -39,7 +35,7 @@
           <input type='text' name='quantity' value='0' class='qty' />
           <input type='button' value='+' class='qtyplus' field='quantity' />
       </div>
-      <%= submit_tag  %>
+      <input type="submit" name="commit" value="show me da wae" />
     <% end %>
 
 <!-- PARTY SIZE -->

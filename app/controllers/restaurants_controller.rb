@@ -17,10 +17,10 @@ class RestaurantsController < ApplicationController
     @rest_time_closed = @restaurant.restaurant_hours.map {|h| h.close}
   end
 
-  def chosen
-    @category = params["category"].keys
-    @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
-  end
+  # def chosen
+  #   @category = params["category"].keys
+  #   @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
+  # end
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
