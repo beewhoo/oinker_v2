@@ -29,6 +29,7 @@ namespace :res do
       response_json = response.parse
       puts "= Start Parsing"
 
+
       # see from our list of categories if the restaurant has those categories
 
 
@@ -36,6 +37,7 @@ namespace :res do
          @restaurant = Restaurant.find_or_create_by(yelp_id: resta["id"])
          our_categories = Category.all
          our_categories.each do |category|
+           puts 'inside the loop'
            resta["categories"].each do |h|
              if h["title"] == category.category
                @restaurant.categories << category
@@ -132,7 +134,7 @@ namespace :res do
 
         #event------------------Eventbrite------------------------_#event
         puts "= Getting into second EVENTS"
-
+        
 
 
     end

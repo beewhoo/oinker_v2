@@ -10,14 +10,13 @@ class DatePlanController < ApplicationController
     @category = params["category"].keys
     @price_max = params['price_max'].to_i
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
-    @restaurant_priced_list = real_price(@restaurant_list)
+    real_price(@restaurant_list)
     console
   end
 
   private
 
   def real_price(list)
-    list = Restaurant.all
     list.each do |restaurant|
       if restaurant.price == '$'
         restaurant.price = 15
