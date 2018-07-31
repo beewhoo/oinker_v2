@@ -20,6 +20,9 @@ class Restaurant < ApplicationRecord
       return rating.sample(4)
   end
 
+  def blank_stars
+    5 - rating.to_i
+  end
 
 
 end
