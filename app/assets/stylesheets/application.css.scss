@@ -17,3 +17,33 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "welcome";
+
+
+html {
+  background-color:#405f69;
+}
+body {
+  background-color:#fef7d2;
+
+}
+
+
+.google_login img {
+  max-width:250px;
+}
+
+
+.login_logout {
+  text-align: right;
+  border-bottom: 1px solid grey;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  background-color:#2AB2CC;
+  color:#d0cca5;
+}
+
+.login_logout img {
+  max-width: 30px;
+  border-radius: 50%;
+}
+

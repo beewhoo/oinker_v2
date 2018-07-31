@@ -5,6 +5,7 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Project</title>
@@ -16,9 +17,14 @@
   </head>
 
   <div class="login_logout">
+    <div id="menuToggle">
+      <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+      <!-- <img src="http://pixsector.com/cache/f5c37214/av089223b78f583a8e8d6.png" width= '75px' alt=""> -->
+     </a>
+   </div>
+   
   <% if current_user %>
-    <p><%=image_tag(current_user.picture)%>
-    | <%= link_to('Logout', destroy_user_session_path, :method => :delete)%></p>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete)%></p>
   <%elsif%>
   <p> <%=link_to('Login', new_user_session_path)%>
   |
@@ -26,8 +32,66 @@
 
   <%end%>
     </div>
+ <div id="wrapper">
 
-  <body>
-    <%= yield %>
-  </body>
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+
+          <li>
+            <% if current_user %>
+            <%=image_tag(current_user.picture, class:'profile_image')%>
+            <p><%=current_user.first_name%> <%=current_user.last_name%></p>
+              <%end%>
+          </li>
+
+            <li class="sidebar-brand">
+                <a href="#">
+                    Oinker
+                </a>
+            </li>
+            <li>
+                <%=link_to('Home', root_path)%>
+            </li>
+            <li>
+                <%=link_to('Browse', welcome_trending_path)%>
+            </li>
+            <li>
+                <%=link_to('Search', welcome_choice_path)%>
+            </li>
+            <li>
+                <%=link_to('Home', root_path)%><a href="#">About</a>
+            </li>
+            <li>
+                <%=link_to('Home', root_path)%><a href="#">FAQ</a>
+            </li>
+            <li>
+                <%=link_to('Home', root_path)%><a href="#">Contact</a>
+            </li>
+            <li>
+                <a href="#">Legal</a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <body>
+
+            <%= yield %>
+          </body>
+
+        </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+
+
+<!-- Menu Toggle Script -->
+
+
+
 </html>
