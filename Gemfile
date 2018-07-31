@@ -63,8 +63,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-# postgres
-gem 'pg'
 ## social login
 gem 'therubyracer'
 gem 'devise'
@@ -89,6 +87,8 @@ gem 'devise-bootstrap-views'
 #google button
 gem 'bootstrap-social-rails', '~> 4.8'
 
+#date and time sorting
+gem 'date'
 #currency conversion
 
 gem 'google_currency', '~> 3.3'

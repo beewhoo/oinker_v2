@@ -42,20 +42,17 @@
   <img src = '<%= @restaurant.image_url %>' width="50%" height="auto"/>
 </p>
 
-
 <p>
-  <strong>Days Open:</strong>
-  <%= @rest_days_open %>
-</p>
-
-<p>
-  <strong>Opening Hours:</strong>
-  <%= @rest_time_open %>
-</p>
-
-<p>
-  <strong>Closing Hours:</strong>
-  <%= @rest_time_closed %>
+<h4><b>HOURS:</b></h4>
+<% @rest_days_open.each_with_index do |name, index| %>
+    <tr>
+      <br>
+      <td><b><%= name %></b><td>:
+      <td><%= @rest_time_open[index].insert(2, ':').to_time.strftime("%I:%M %p")%></td>
+      -
+      <td><%= @rest_time_closed[index].insert(2, ':').to_time.strftime("%I:%M %p")%></td>
+    </tr>
+  <% end %>
 </p>
 
 <p>

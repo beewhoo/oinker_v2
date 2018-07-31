@@ -19,12 +19,12 @@
 
 <p>
   <strong>Event Date:</strong>
-  <%= @event.date %>
+  <%= @event.date.strftime("%A %B %d %Y at %I:%M %p") %>
 </p>
 
 <p>
   <strong>Avg Ticket Price:</strong>
-  <%= @event.price %>
+  $<%= @event.price %>
 </p>
 
 <p>
