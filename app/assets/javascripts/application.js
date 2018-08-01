@@ -22,9 +22,13 @@ document.addEventListener('DOMContentLoaded', function(){
   // var categories = document.getElementByClassName('category_name');
 
 
-  $("#menu-toggle").click(function(e) {
-   e.preventDefault();
+  $('#menuToggle').click(function(e) {
+    e.preventDefault()
    $("#wrapper").toggleClass("toggled");
+   $("#menuToggle").toggleClass("menuOpen");
+
+
+
   });
 
 
