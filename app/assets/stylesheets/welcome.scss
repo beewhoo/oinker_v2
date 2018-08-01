@@ -37,8 +37,6 @@ input.qtyminus { width:2.2em; height:2.2em;}
 }
 
 //categories
-
-
 .wrapper {
   display: grid;
   grid-template-columns: 2fr 2fr;
@@ -60,8 +58,6 @@ input.qtyminus { width:2.2em; height:2.2em;}
 }
 
 // carousel drop down
-
-
 .carousel {
   background-color: grey;
 }
@@ -71,6 +67,7 @@ input.qtyminus { width:2.2em; height:2.2em;}
   height: 510px;
 }
 
+// dropdown for restaurants
 .category_name {
   list-style-type: none;
 }

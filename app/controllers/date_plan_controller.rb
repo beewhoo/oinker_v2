@@ -27,10 +27,23 @@ class DatePlanController < ApplicationController
     @category = params["category"].keys
     @price_max = params['price_max'].to_i
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
+    list_of_restaurants_matching_days_open(@restaurant_list)
     real_price(@restaurant_list)
   end
 
   private
+
+  def list_of_restaurants_matching_days_open(restaurant_list)
+    list = []
+    restaurant_list.each do |restaurant|
+       days_open = restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]}
+       days_open.each do |day|
+         if day == @date.strftime('%A') && restaurant.price.to_i <= @price_max
+         list << restaurant
+         end
+       end
+    end
+  end
 
   def real_price(list)
     list.each do |restaurant|

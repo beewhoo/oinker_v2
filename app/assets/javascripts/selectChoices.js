@@ -22,10 +22,17 @@ $( function() {
 
 // CATEGORY CHOICE
 
-var checkList = document.getElementById('catlist')
+var checkList = document.querySelectorAll('.dropdown-check-list')
 
-if (checkList !== null) {
-  var categories = document.querySelector('.categories')
+checkList.forEach(function(e) {
+  checkListDrop(e);
+});
+
+function checkListDrop(checkList) {
+  if (checkList === null) {
+    return
+  }
+  var categories = checkList.querySelector('.categories')
 
   checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
     evt.stopPropagation()
@@ -51,10 +58,6 @@ if (checkList !== null) {
     categories.addEventListener('click', function(evt) {
       evt.stopPropagation();
     })
-    // checkList.onblur = function(evt) {
-    //   console.log(evt)
-    //   categories.classList.remove('visible');
-    // }
   };
 
 

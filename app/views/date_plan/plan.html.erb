@@ -1,5 +1,6 @@
 <h1> Chosen stuff </h1>
 
+<div class="restaurant-choice">
 <h1> Here is a list of three restaurants you have chosen from the categories:
   <% @category.each do |cat|%>
   <%= cat %>
@@ -8,8 +9,7 @@
   with a total price for <%= @quantity %> people of $<%= @price_max * @quantity %>
 </h1>
 
-
-<% list=[] %>
+<!-- <% list=[] %>
 <% @restaurant_list.each do |restaurant| %>
   <div class="individual-chosen-restaurant">
     <% days_open = restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]} %>
@@ -19,7 +19,7 @@
       <% end %>
     <% end %>
 <% end  %>
-  </div>
+  </div> -->
 
 <%= form_tag "/date_plan", method: :post do %>
   <% list.sample(3).each do |restaurant| %>
@@ -31,6 +31,8 @@
     </br>
     </br>
   <% end %>
+</div>
+
   <input type="submit" name="commit" value="Save" />
 
   <%= hidden_field_tag :date, params["date"] %>

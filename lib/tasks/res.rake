@@ -150,7 +150,7 @@ namespace :res do
           #nextcalls
 
 
-          while response_eventbrite['pagination']['has_more_items'] == true  && page_number < 5
+          while response_eventbrite['pagination']['has_more_items'] == true  && page_number < 1
             page_number +=1
             url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km&price=paid&categories=103,105,104&page=#{page_number}"
             response = HTTParty.get(url)

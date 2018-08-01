@@ -17,13 +17,11 @@
    <label for="amount">Max amount per person:</label>
    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;" name= "price_max">
   </p>
-<div id="slider-range-max"></div>
-
-
+  <div id="slider-range-max"></div>
 
 <!-- CATEGORIES -->
-   <div id="catlist" class="dropdown-check-list" tabindex="100">
-     <span class="anchor"> Select category </span>
+   <div id="resta-catlist" class="dropdown-check-list" tabindex="100">
+     <span class="anchor"> Select restaurant category </span>
      <ul class="categories">
       <% Category.all.each do |category| %>
         <li class="category_name">
@@ -31,9 +29,21 @@
           <%= check_box_tag("category[#{category.category}]")%>
           <% end %>
         </li>
-      <!-- <li>
-        Surprise me!
-      </li> -->
+    </ul>
+  </div>
+
+   <div id="event-catlist" class="dropdown-check-list" tabindex="100">
+     <span class="anchor"> Select events category </span>
+     <ul class="categories">
+       <!-- added fields_for for the params to show in one hash -->
+     <%= fields_for :event_category do |event_field| %>
+      <% @events_category.each do |category| %>
+        <li class="category_name">
+          <%= event_field.label(category)%>
+          <%= event_field.check_box(category)%>
+          <% end %>
+        </li>
+        <% end %>
     </ul>
   </div>
       <input type="submit" name="commit" value="show me da wae" />
