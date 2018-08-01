@@ -13,7 +13,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 1
+    while offset < 100
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"

@@ -5,4 +5,5 @@ class DatePlan < ApplicationRecord
 
 
 
+
 end

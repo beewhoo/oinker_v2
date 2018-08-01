@@ -12,6 +12,7 @@ class DatePlanController < ApplicationController
     @date_plan.restaurant_id = params["restaurant"]
     @date_plan.user_id = current_user.id
     @date_plan.date = Date.strptime(params['date'], '%m/%d/%Y')
+    @date_plan.event_id = params["event"]
 
     if @date_plan.save
       redirect_to user_url(current_user.id)
@@ -21,36 +22,38 @@ class DatePlanController < ApplicationController
     end
   end
 
+
   def plan
     @date = Date.strptime(params['date'], '%m/%d/%Y')
     @quantity = params['quantity'].to_i
     @price_max = params['price_max'].to_i
-    
+
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
     @category = params["category"].keys
+    @event_list = Event.all
+ 
+
     list_of_restaurants_matching_days_open(@restaurant_list)
     real_price(@restaurant_list)
-
-    @event_list = Event.all
-
+    event_list_category(@event_list)
   end
 
-  private
-
   def event_list_category(event_list)
-    event_list = []
     params[:event_category].each do |category|
-      if category == "1"
+      event_list.each do |event|
+        if category != 1 && event.category != category
+          event_list.delete(event)
+        end
+      end
+    end
   end
 
   def list_of_restaurants_matching_days_open(restaurant_list)
     restaurant_list.each do |restaurant|
        days_open = restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]}
        days_open.each do |day|
-         if day == @date.strftime('%A') && restaurant.price.to_i <= @price_max
-         next
-       else
-         restaurant_list.delete('restaurant')
+         if day != @date.strftime('%A')
+          restaurant_list.delete('restaurant')
          end
        end
     end
@@ -65,5 +68,6 @@ class DatePlanController < ApplicationController
       end
     end
   end
+
 
 end
