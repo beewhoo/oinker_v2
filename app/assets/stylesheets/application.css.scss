@@ -49,6 +49,7 @@ body {
 
 .login_logout p {
   text-decoration: none;
+  padding: 1em;
   color:white;
 }
 
@@ -161,13 +162,26 @@ body {
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-
   background: #cdcdcd;
   border-radius: 3px;
-
   z-index: 1;
-
   transform-origin: 4px 0px;
+
+}
+
+#menuToggle {
+  display:inline-block;
+  position:absolute;
+  left:1.2em;
+  top:0.5em
+
+}
+
+#menuToggle div {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
 
 }
 
