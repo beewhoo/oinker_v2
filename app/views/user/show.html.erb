@@ -1,3 +1,14 @@
-<% @date_plans.each do |dateplan| %>
-<%= dateplan.user_id %>
+<h1> Hi <%= @user.first_name %></h1>
+
+<p>
+   Here are the plans you have saved:
+</p>
+
+<% @date_plans.each do |date_plan| %>
+<p> <%= date_plan.date %>
+  </p>
+  <%= date_plan.restaurant.name %>
+  <img src="<%=date_plan.restaurant.image_url %>" height="200" width="200"/>
+  <br />
+
 <% end %>

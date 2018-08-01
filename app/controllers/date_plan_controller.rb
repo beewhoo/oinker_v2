@@ -11,6 +11,7 @@ class DatePlanController < ApplicationController
     @date_plan = DatePlan.new
     @date_plan.restaurant_id = params["restaurant"]
     @date_plan.user_id = current_user.id
+    @date_plan.date = Date.strptime(params['date'], '%m/%d/%Y')
 
     if @date_plan.save
       redirect_to user_url(current_user.id)
