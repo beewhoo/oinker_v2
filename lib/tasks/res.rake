@@ -13,7 +13,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 200
+    while offset < 1
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -60,7 +60,7 @@ namespace :res do
          @restaurant.price = resta["price"]
          @restaurant.address = resta["location"]["display_address"].join(', ')
          @restaurant.phone = resta["display_phone"]
-         puts "= second call"
+         puts "= venue call"
          detail_response = HTTP.auth("Bearer #{API_KEY}").get("#{url_details}#{resta['id']}")
          detail_json = detail_response.parse
 
@@ -94,7 +94,7 @@ namespace :res do
         SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
         SEATGEEK_HOST='https://api.seatgeek.com/2/events?'
         SEATGEEK_CITY='location=toronto'
-        SEATGEEK_LISTINGS ='&listing_count.gt=0&per_page=200'
+        SEATGEEK_LISTINGS ='&listing_count.gt=0&per_page=1'
         SEATGEEK_PAGE = '&page=1'
         SEATGEEK_PRICE='&highest_price.lte=200'
 
@@ -131,78 +131,34 @@ namespace :res do
           @event.save!
         end
 
+            #firstcall
 
-
-        puts '------------------Eventbrite------------------------'
-
+            page_number = 1
             eventbrite_client=ENV['EVENTBRITE_CLIENT_ID']
-            url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km"
+            url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km&price=paid&categories=103,105,104&page=#{page_number}"#103=music #105=performing&visual arts #104film, media entertainment
             response = HTTParty.get(url)
+
+        
+
             response_eventbrite = JSON.parse(response.body)
-
-            response_eventbrite['events'].each do |event|
-
-              #edge-cases
-
-              if event['is_free'] == true
-                next
-              end
-              if event['online_event'] == true
-                next
-              end
+            Event.eventbrite_task(eventbrite_client,response_eventbrite)
 
 
-            url_second = "https://www.eventbriteapi.com/v3/venues/#{event['venue_id']}/?token=#{eventbrite_client}"
-            response_second_call = HTTParty.get(url_second)
+          #nextcalls
 
-            url_third = "https://www.eventbriteapi.com/v3/categories/#{event['category_id']}/?token=#{eventbrite_client}"
-            response_third_call = HTTParty.get(url_third)
 
-            url_fourth = "https://www.eventbriteapi.com/v3/events/#{event['id']}/ticket_classes/?token=#{eventbrite_client}"
-            response_fourth_call = HTTParty.get(url_fourth)
+            while response_eventbrite['pagination']['has_more_items'] == true  && page_number < 5
+              page_number +=1
+              url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km&price=paid&categories=103,105,104&page=#{page_number}"
+              response = HTTParty.get(url)
+              response_eventbrite = JSON.parse(response.body)
+              Event.eventbrite_task(eventbrite_client,response_eventbrite)
 
-            @event = Event.find_or_create_by(api_id: event["id"])
+            end
 
-            #edge case & fourth call
 
-              if response_fourth_call['ticket_classes'].last['cost']
-                @event.price = response_fourth_call['ticket_classes'].last['cost']['major_value'].to_i
-              end
 
-            #edge case & first call
 
-              if event['logo'] == nil || event['logo']['url'] == nil
-                @event.image_url = 'https://cdn.business2community.com/wp-content/uploads/2013/08/eventbrite_logo2-300x300.jpg'
-              else
-                @event.image_url = event['logo']['url']
-              end
-
-            #third call
-            @event.category = response_third_call['short_name']
-
-            #second call
-            @event.location = response_second_call['address']['localized_address_display']
-            @event.long = response_second_call['longitude']
-            @event.lat = response_second_call['latitude']
-            @event.venue = response_second_call['name']
-
-            #first call
-            @event.name = event['name']['text']
-            @event.url = event['url']
-            @event.date = event['start']['local']
-
-            #save
-            @event.save
-
-            puts '----------------------event brite--------------------------------------'
-                puts "NAME#{@event.name}"
-                puts "PRICE#{@event.price}"
-                puts "LOCATION#{@event.location}"
-                puts "CATEGORY#{@event.category}"
-                puts "VENUE#{@event.venue}"
-            puts '------------------------------------------------------------------------'
-          end
->>>>>>> 67c134763ae761fe2db2fbda96b57e18e3ca230f
 
     end
 
