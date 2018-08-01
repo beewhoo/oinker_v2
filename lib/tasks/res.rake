@@ -88,7 +88,7 @@ namespace :res do
 
 
 
- puts '--------------------------Seatgeek----------------------------------'
+      ##seatgeek
 
 
         SEATGEEK_CLIENT_ID=ENV['CLIENT_ID']
@@ -131,14 +131,17 @@ namespace :res do
           @event.save!
         end
 
-            #firstcall
+
+
+
+            #Eventbrite
 
             page_number = 1
             eventbrite_client=ENV['EVENTBRITE_CLIENT_ID']
             url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km&price=paid&categories=103,105,104&page=#{page_number}"#103=music #105=performing&visual arts #104film, media entertainment
             response = HTTParty.get(url)
 
-        
+
 
             response_eventbrite = JSON.parse(response.body)
             Event.eventbrite_task(eventbrite_client,response_eventbrite)
@@ -147,14 +150,14 @@ namespace :res do
           #nextcalls
 
 
-            while response_eventbrite['pagination']['has_more_items'] == true  && page_number < 5
-              page_number +=1
-              url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km&price=paid&categories=103,105,104&page=#{page_number}"
-              response = HTTParty.get(url)
-              response_eventbrite = JSON.parse(response.body)
-              Event.eventbrite_task(eventbrite_client,response_eventbrite)
+          while response_eventbrite['pagination']['has_more_items'] == true  && page_number < 5
+            page_number +=1
+            url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km&price=paid&categories=103,105,104&page=#{page_number}"
+            response = HTTParty.get(url)
+            response_eventbrite = JSON.parse(response.body)
+            Event.eventbrite_task(eventbrite_client,response_eventbrite)
 
-            end
+          end
 
 
 
