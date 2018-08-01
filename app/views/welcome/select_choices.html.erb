@@ -5,8 +5,14 @@
   <%= form_tag "/date_plan", method: :get do %>
     <p>Date: <input type="text" id="datepicker" name="date"></p>
 
+    <div id="partysize">
+      <input type='button' value='-' class='qtyminus' field='quantity' />
+      <input type='text' name='quantity' value='0' class='qty' />
+      <input type='button' value='+' class='qtyplus' field='quantity' />
+    </div>
+
 <!-- BUDGET CHOICE -->
-  <h2>HOW CHEAP ARE YOU?</h2>
+  <h3> Select an amount</h3>
   <p>
    <label for="amount">Max amount per person:</label>
    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;" name= "price_max">
@@ -30,11 +36,6 @@
       </li> -->
     </ul>
   </div>
-      <div id="partysize">
-          <input type='button' value='-' class='qtyminus' field='quantity' />
-          <input type='text' name='quantity' value='0' class='qty' />
-          <input type='button' value='+' class='qtyplus' field='quantity' />
-      </div>
       <input type="submit" name="commit" value="show me da wae" />
     <% end %>
 
