@@ -11,12 +11,13 @@ class DatePlanController < ApplicationController
     @date_plan = DatePlan.new
     @date_plan.restaurant_id = params["restaurant"]
     @date_plan.user_id = current_user.id
+    @date_plan.date = params["date"]
 
     if @date_plan.save
       redirect_to user_url(current_user.id)
     else
       flash[:notice] = "You have to select a restaurant to save your date plan!"
-      redirect_back fallback_location: @post 
+      redirect_back fallback_location: @post
     end
   end
 
