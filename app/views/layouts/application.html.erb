@@ -18,30 +18,32 @@
 
 
     <div class="login_logout">
-      <div id="menuToggle">
-        <div></div>
-        <div></div>
-        <div></div>
+
+
+      <div class='close'id="menuToggle">
+        <div class='bar1'></div>
+        <div class='bar2'></div>
+        <div class='bar3'></div>
        </div>
 
+      <% if current_user %>
+      <p>Hello <%= current_user.first_name %> | <%=link_to('Logout', destroy_user_session_path, :method => :delete)%></p>
+      <%elsif%>
+      <p>Hello Guest!
+      |
+        <%=link_to('Sign Up', new_user_registration_path)%>
+      |
+        <%=link_to('Login', new_user_session_path)%>
+     </p>
+     <%end%>
+  </div>
 
 
-  <% if current_user %>
-  <p>Hello <%= current_user.first_name %> | <%=link_to('Logout', destroy_user_session_path, :method => :delete)%></p>
-  <%elsif%>
-  <p>Hello Guest!
-  |
-    <%=link_to('Sign Up', new_user_registration_path)%>
-  |
-    <%=link_to('Login', new_user_session_path)%>
- </p>
 
-  <%end%>
-    </div>
     <div id="wrapper">
 
    <!-- Sidebar -->
-   <div id="sidebar-wrapper">
+    <div id="sidebar-wrapper">
        <ul class="sidebar-nav">
 
          <li>
@@ -65,17 +67,14 @@
            <li>
                <%=link_to('Search', welcome_choice_path)%>
            </li>
+
+           <%if !current_user %>
            <li>
-               <%=link_to('Home', root_path)%><a href="#">About</a>
+               <%=link_to('Sign up', new_user_registration_path)%>
            </li>
+           <%end%>
            <li>
-               <%=link_to('Home', root_path)%><a href="#">FAQ</a>
-           </li>
-           <li>
-               <%=link_to('Home', root_path)%><a href="#">Contact</a>
-           </li>
-           <li>
-               <a href="#">Legal</a>
+               <%=link_to('About')%>
            </li>
 
        </ul>

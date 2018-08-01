@@ -23,8 +23,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   $('#menuToggle').click(function(e) {
-   e.preventDefault();
+    e.preventDefault()
    $("#wrapper").toggleClass("toggled");
+   $("#menuToggle").toggleClass("menuOpen");
+
+
 
   });
 
