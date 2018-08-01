@@ -24,22 +24,33 @@ class DatePlanController < ApplicationController
   def plan
     @date = Date.strptime(params['date'], '%m/%d/%Y')
     @quantity = params['quantity'].to_i
-    @category = params["category"].keys
     @price_max = params['price_max'].to_i
+    
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
+    @category = params["category"].keys
     list_of_restaurants_matching_days_open(@restaurant_list)
     real_price(@restaurant_list)
+
+    @event_list = Event.all
+
   end
 
   private
 
+  def event_list_category(event_list)
+    event_list = []
+    params[:event_category].each do |category|
+      if category == "1"
+  end
+
   def list_of_restaurants_matching_days_open(restaurant_list)
-    list = []
     restaurant_list.each do |restaurant|
        days_open = restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]}
        days_open.each do |day|
          if day == @date.strftime('%A') && restaurant.price.to_i <= @price_max
-         list << restaurant
+         next
+       else
+         restaurant_list.delete('restaurant')
          end
        end
     end
