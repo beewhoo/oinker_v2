@@ -32,5 +32,9 @@ class Restaurant < ApplicationRecord
   end
 
 
+  def blank_dollars
+    4 - price.size
+  end
+
 
 end
