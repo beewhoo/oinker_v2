@@ -19,6 +19,7 @@
 @import "welcome";
 @import 'restaurants';
 @import 'events';
+@import 'select_choices';
 
 
 body {
@@ -26,8 +27,6 @@ body {
   box-sizing: border-box;
 
 }
-
-
 
 
 .google_login img {
@@ -51,7 +50,6 @@ body {
 .login_logout a , p {
   text-decoration: none;
   padding: 1em;
-  color:white;
 }
 
 

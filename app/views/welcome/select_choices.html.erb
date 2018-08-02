@@ -1,14 +1,19 @@
 
 
 <!-- DATE CHOICE -->
+
+<h1 class="make-plan"><span>MAKE A PLAN</span></h1>
+
+<section class="make-choices">
+
 <div class="pick-date">
   <h2>Pick a date </h2>
   <%= form_tag "/date_plan", method: :get do %>
-    <p>Date: <input type="text" id="datepicker" name="date"></p>
+    <p><input type="text" id="datepicker" name="date"></p>
 </div>
 
 <div id="partysize">
-  <h2> How many people </h2>
+  <h2> How many people? </h2>
   <input type='button' value='-' class='qtyminus' field='quantity' />
   <input type='text' name='quantity' value='0' class='qty' />
   <input type='button' value='+' class='qtyplus' field='quantity' />
@@ -16,12 +21,14 @@
 
 
 <!-- BUDGET CHOICE -->
-  <h3> Select an amount</h3>
+<div class="budget">
+  <h2> What's your budget per person? </h2>
   <p>
-   <label for="amount">Max amount per person:</label>
+   <label for="amount">Max amount per person:</label> </br>
    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;" name= "price_max">
   </p>
   <div id="slider-range-max"></div>
+</div>
 
 <!-- CATEGORIES -->
    <div id="resta-catlist" class="dropdown-check-list" tabindex="100">
@@ -50,5 +57,9 @@
         <% end %>
     </ul>
   </div>
-      <input type="submit" name="commit" value="show me da wae" />
-    <% end %>
+
+  <div class="choice-button">
+    <input type="submit" name="commit" value="Find me a date!" />
+  </div>
+  <% end %>
+</section>
