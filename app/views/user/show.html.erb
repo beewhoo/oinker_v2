@@ -2,13 +2,17 @@
 
 <p>
    Here are the plans you have saved:
-</p>
+ </p>
 
 <% @date_plans.each do |date_plan| %>
-<p> <%= date_plan.date %>
-  </p>
+<div class="individual-date-plan">
+  <p> Here is your plan for </p>
+<%= link_to date_plan.date.strftime('%A, %b %e %Y'), show_date_plan_path(date_plan)  %>
   <%= date_plan.restaurant.name %>
   <img src="<%=date_plan.restaurant.image_url %>" height="200" width="200"/>
+  <%= date_plan.event.name %>
+  <img src="<%= date_plan.event.image_url %>" height="200" width="200"/>
   <br />
 
+</div>
 <% end %>

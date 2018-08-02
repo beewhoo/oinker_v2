@@ -7,6 +7,12 @@ class DatePlanController < ApplicationController
     @date_plan = DatePlan.new
   end
 
+  def show
+    load_user
+    @date_plan = @user.date_plans.find(params[:id])
+  end
+
+
   def create
     @date_plan = DatePlan.new
     @date_plan.restaurant_id = params["restaurant"]
@@ -15,11 +21,17 @@ class DatePlanController < ApplicationController
     @date_plan.event_id = params["event"]
 
     if @date_plan.save
-      redirect_to user_url(current_user.id)
+      redirect_to show_date_plan_url(@date_plan)
     else
       flash[:notice] = "You have to select a restaurant to save your date plan!"
       redirect_back fallback_location: @post
     end
+  end
+
+  def destroy
+    @date_plan = DatePlan.find(params[:id])
+    @date_plan.destroy
+    redirect_to user_path
   end
 
 
@@ -41,8 +53,6 @@ class DatePlanController < ApplicationController
     event_list_price(@event_list, @restaurant_list)
     @new_list = @new_list.sample(3)
 
-    # @event_list = @event_list.sample(3)
-    # @restaurant_list = @restaurant_list.sample(3)
   end
 
   private
@@ -83,15 +93,10 @@ class DatePlanController < ApplicationController
       end
     end
   end
-  #
-  # def restaurant_list_price(restaurant_list, event_list)
-  #   restaurant_list = restaurant_list.all.select do |restaurant|
-  #     ev_list = event_list.select do |event|
-  #       event.price.to_i + restaurant.price.to_i <= @price_max
-  #     end
-  #     ev_list.length > 0
-  #   end
-  # end
+
+  def load_user
+    @user = User.find_by(id: current_user.id)
+  end
 
 
 end

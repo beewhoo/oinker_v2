@@ -1,0 +1,3 @@
+<%= @date_plan.restaurant.name %>
+<%= @date_plan.event.name %>
+<%= button_to "delete", show_date_plan_url(@date_plan), method: :delete, data: {confirm: "Are you sure you want to delete your plan?"}%>
