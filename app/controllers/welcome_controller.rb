@@ -2,6 +2,8 @@ class WelcomeController < ApplicationController
 
    skip_before_action :authenticate_user!
 
+
+  
   def homepage
   end
 
@@ -9,6 +11,7 @@ class WelcomeController < ApplicationController
   def trending
     @top_rated_restaurants = Restaurant.rating
     @top_rated_events = Event.rating
+
   end
 
   def date_choice

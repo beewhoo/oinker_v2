@@ -1,94 +1,13 @@
-<!-- carousel -->
-<% require 'money'%>
-<% require 'money/bank/google_currency' %>
 
 
 
-<h1 class="welcomeOinklet"> Welcome to OINKLET </h1>
-<section class="carousel-section">
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-    <!--  when data loads, this slider will start sliding -->
-      <div id="slider" class="carousel slide" data-ride="carousel-fluid" data-interval="false">
-        <!-- indicators dot nov-->
-        <ol class="carousel-indicators">
-          <li data-target="#slider" data-slide-to="0" class="active"></li>
-          <li data-target="#slider" data-slide-to="1"></li>
-          <li data-target="#slider" data-slide-to="2"></li>
-        </ol>
+<div class="page">
+   <div class="see-more">
+    <button type="button" id="seeMoreButton" class="mt-button">See More</button>
+  </div>
+	<div class="gallery">
 
-        <!-- wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <!-- slide that the web opens on-->
-          <div class="item active">
-            <div class="carousel-image">
-              <%= image_tag("https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-0.3.5&s=193ed46f6fed7e54ea139337a564da1d&auto=format&fit=crop&w=1050&q=80") %>
-            </div>
-            <div class="carousel-caption">
-             <h1>Discover</h1>
-              <p>
-                Find the newest restaurants and cool events happening near you
-              </p>
-            </div>
-          </div>
-          <div class="item">
-            <div class= "carousel-image">
-            <%= image_tag("https://images.unsplash.com/photo-1520493004415-dca44df8ade5?ixlib=rb-0.3.5&s=3a184e444b788fc8aafa8b8849beec6c&auto=format&fit=crop&w=1056&q=80") %>
-            </div>
-            <div class="carousel-caption">
-             <h1>Plan</h1>
-              <p>
-                Choose your plans, at the budget you want
-              </p>
-            </div>
-          </div>
-          <div class="item">
-            <div class= "carousel-image">
-              <%= image_tag("https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fada82e527ef9eeaa1faed34043b425b&auto=format&fit=crop&w=967&q=80") %>
-            </div>
-            <div class="carousel-caption">
-             <h1>Enjoy</h1>
-              <p>
-                We'll keep you on track so you can sit back and relax
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- controls / next and prev buttons. id should be of your slider-->
-        <a class="left carousel-control" href="#slider" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        </a>
-        <a class="right carousel-control" href="#slider" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        </a>
-      </div>
-    </div>
+  <div class="back-to-top" data-active="false">
+    <button type="button" id="backToTopButton" class="mt-button">Top</button>
   </div>
 </div>
-</section>
-
-
-<!--restaurants-->
-
-<h4 class= 'sub_title'>Top rated Restaurants</h4>
-
-<section class="rated_restaurant">
-<%@top_rated_restaurants.each do |resta|%>
-<div class="top_rated_restaurants">
-<%=link_to (image_tag (resta.image_url)), resta.restaurant_url, :target => ":_blank"  %>
-<p><%=resta.name[0..10] %></p>
-</div>
-<%end%>
-</section>
-<!--events -->
-<h4 class= 'sub_title'>Top Rated Events</h4>
-
-<section class ='rated_event'>
-<%@top_rated_events.each do |event|%>
-<div class="top_rated_events">
-<%=link_to (image_tag (event.image_url)), event.url, :target => ":_blank"  %>
-<p><%=event.category.split('_').map(&:capitalize).join(' ') %></p>
-<p>$<%=event.price %></p>
-</div>
-<%end%>

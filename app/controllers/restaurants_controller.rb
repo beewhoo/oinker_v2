@@ -4,7 +4,12 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    # @restaurants = Restaurant.all
+    @restaurants = Restaurant.order('RANDOM()').limit(11)
+
+    respond_to do |format|
+       format.html # index.html.erb
+       format.json { render json: @restaurants }
+    end
   end
 
   # GET /restaurants/1

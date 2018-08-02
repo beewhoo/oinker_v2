@@ -19,8 +19,14 @@
 @import "welcome";
 
 
-html {
-  background-color:#405f69;
+body {
+  font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+
+}
+
+p {
+
 }
 
 
@@ -31,15 +37,11 @@ html {
 
 
 .login_logout {
-  text-align: right;
-  border-bottom: 0.063em solid grey; /* 1/16 */
-  padding-right: 1em;
-  padding-top: 0.2em;
-  background-color:#2AB2CC;
-  color:#d0cca5;
+  background-color: #fff782;/* 1/16 */
   position: fixed;
   z-index: 2000;
   width: 100%;
+  padding:.3em;
 }
 
 .login_logout img {
@@ -55,9 +57,9 @@ html {
 
 
 // sidebar menu
-body {
-  overflow-x: hidden;
-}
+// body {
+//   overflow-x: hidden;
+// }
 
 #wrapper {
   padding-left: 0;
@@ -79,7 +81,7 @@ body {
   height: 100%;
   margin-left: -15.625em; /* -250/16 */
   overflow-y: auto;
-  background: #D75750;
+  background:#0272ff; //blue;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -94,7 +96,7 @@ body {
 #page-content-wrapper {
   width: 100%;
   position: absolute;
-  padding: 0.938em; /* 15/16 */
+  // padding: 0.938em; /* 15/16 */
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -188,6 +190,7 @@ body {
 
 
 
+
 #menuToggle {
   display:inline-block;
   position:absolute;
@@ -199,13 +202,50 @@ body {
 #menuToggle div {
   width: 2.188em; /* 35/16 */
   height: 0.313em; /* 5/16 */
-  background-color: white;
+  background-color: #0272ff;
   margin: 0.375em 0; /* 6/16 */
 
 }
 
 .close {
   opacity:1;
+}
+
+.login_logout span {
+  font-size: 3em;
+  color:#0272ff;
+
+}
+
+.login_logout img {
+  max-width: 11.875em;
+  border-radius: 50%;
+
+}
+
+
+.logo {
+  position: absolute;
+  right:0px;
+  top:-22px;
+
+
+}
+
+
+.container {
+  width: 100%;
+}
+
+
+.container-fluid {
+  padding-left:0px;
+  padding-right:0px;
+}
+
+.col-sm-12 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 
@@ -223,7 +263,7 @@ body {
     width: 15.625em; /* 250/16 */
   }
   #page-content-wrapper {
-    padding: 4.99em; /* 20/16 */
+    padding-top: 4.99em; /* 20/16 */
     position: relative;
   }
   #wrapper.toggled #page-content-wrapper {
