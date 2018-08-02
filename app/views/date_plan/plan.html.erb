@@ -2,43 +2,42 @@
 
 <h1> Here is a list of three restaurants you have chosen from the categories:
   <% @category.each do |cat|%>
-  <%= cat %>
+    <%= cat %>
   <% end %>
   for <%= @date.strftime('%A, %b %e %Y' ) %>
   with a total price for <%= @quantity %> people of $<%= @price_max * @quantity %>
 </h1>
 
-
+<section class="container">
 <%= form_tag "/date_plan", method: :post do %>
-<section class="chosen">
-  <div class="restaurant-choice">
-    <% @restaurant_list.sample(3).each do |restaurant| %>
+  <% @new_list.each do |array| %>
+    <% event = array[0] %>
+    <% restaurant = array[1] %>
+
+    <div class="list-restaurant">
       <%= link_to restaurant_path(restaurant.id) do %>
         <img  class= "individual-chosen-image" src="<%=restaurant.image_url%>" height="180" width="250"/>
+        <% end %>
         $<%= restaurant.price %>
-      <% end %>
-      <%= radio_button_tag(:restaurant, restaurant.id) %>
-      <%= label_tag(:restaurant, restaurant.name) %>
+        <%= radio_button_tag(:restaurant, restaurant.id) %>
+        <%= label_tag(:restaurant, restaurant.name) %>
       </br>
       </br>
-    <% end %>
-  </div>
+    </div>
 
-  <div class="event-choice">
-    <% @event_list.sample(3).each do |event| %>
+    <div class= "list-event">
       <%= link_to event_path(event.id) do %>
         <img  class= "individual-chosen-image" src="<%=event.image_url%>" height="180" width="250"/>
+      <% end %>
         $<%= event.price %>
-    <% end %>
-      <%= radio_button_tag(:event, event.id) %>
-      <%= label_tag(:event, event.name) %>
+        <%= radio_button_tag(:event, event.id) %>
+        <%= label_tag(:event, event.name) %>
       </br>
       </br>
-    <% end %>
-  </div>
+    </div>
 
-  <input type="submit" name="commit" value="Save" />
-</section>
-
+  <% end %>
+    <input type="submit" name="commit" value="Save" />
   <%= hidden_field_tag :date, params["date"] %>
 <% end %>
+</section>

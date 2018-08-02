@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/welcome/trending', to: 'welcome#trending'
   get '/date_plan', to: 'date_plan#plan'
   post '/date_plan', to: 'date_plan#create'
+  get '/date_plan/:id', to: 'date_plan#show', as: 'show_date_plan'
+  delete '/date_plan/:id', to: 'date_plan#destroy'
   get '/user', to: 'user#show'
-
 end
