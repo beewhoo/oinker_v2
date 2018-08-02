@@ -27,6 +27,7 @@ class DatePlanController < ApplicationController
     @date = Date.strptime(params['date'], '%m/%d/%Y')
     @quantity = params['quantity'].to_i
     @price_max = params['price_max'].to_i
+    @price_max_for_quantity = @quantity * @price_max
 
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
     @category = params["category"].keys
@@ -36,7 +37,7 @@ class DatePlanController < ApplicationController
     list_of_restaurants_matching_days_open(@restaurant_list)
     real_price(@restaurant_list)
     event_list_category(@event_list)
-
+    total_of_both(@restaurant_list, @event_list)
 
   end
 
@@ -74,7 +75,13 @@ class DatePlanController < ApplicationController
   def total_of_both(event_list, resta_list)
     event_list.each do |event|
       resta_list.each do |resta|
-        if event.price
+        if event.price.to_i + resta.price.to_i > @price_max_for_quantity
+          event_list.delete(event)
+          resta_list.delete(resta)
+        end
+      end
+    end
+  end
 
 
 end

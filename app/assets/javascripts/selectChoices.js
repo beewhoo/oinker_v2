@@ -10,8 +10,8 @@ $( function() {
 $( function() {
    $( "#slider-range-max" ).slider({
      range: "max",
-     min: 10,
-     max: 100,
+     min: 15,
+     max: 80,
      value: 2,
      slide: function( event, ui ) {
        $( "#amount" ).val( ui.value );
