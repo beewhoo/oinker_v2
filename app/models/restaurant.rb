@@ -15,16 +15,6 @@ class Restaurant < ApplicationRecord
       return rating.sample(4)
   end
 
-  # def self.new_price(@restaurant_list)
-  #   @restaurants_list.each do |restaurant|
-  #     if restaurant.price == '$'
-  #       restaurant.price = 10
-  #     elsif restaurant.price == '$$'
-  #       restaurant.price = 30
-  #     end
-  #   end
-  # end
-
   def blank_stars
     5 - rating.to_i
   end
