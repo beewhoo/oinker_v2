@@ -21,6 +21,7 @@ class DatePlanController < ApplicationController
     @date_plan.event_id = params["event"]
 
     if @date_plan.save
+      flash[:success] = "We have sent you an email confirmation to current_user.email"
       redirect_to show_date_plan_url(@date_plan)
     else
       flash[:notice] = "You have to select a restaurant to save your date plan!"
@@ -52,6 +53,11 @@ class DatePlanController < ApplicationController
 
     event_list_price(@event_list, @restaurant_list)
     @new_list = @new_list.sample(3)
+
+    respond_to do |format|
+     format.html
+     format.json { render json: @new_list }
+   end
 
   end
 
