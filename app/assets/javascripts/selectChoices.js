@@ -61,5 +61,4 @@ function checkListDrop(checkList) {
   };
 
 
-
 });
