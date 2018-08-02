@@ -1,7 +1,6 @@
 class Event < ApplicationRecord
     has_many :users, through: :date_plan
 
-
     def self.rating
       rating = []
       @events = Event.all
@@ -16,12 +15,9 @@ class Event < ApplicationRecord
 
 
     def self.eventbrite_task(eventbrite_client,response_eventbrite)
-
-
-  response_eventbrite['events'].each do |event|
+      response_eventbrite['events'].each do |event|
 
       @event = Event.find_or_create_by(api_id: event["id"])
-
             #edge-cases first-call
             if event['online_event'] == true
               next
@@ -31,10 +27,7 @@ class Event < ApplicationRecord
               @event.image_url = 'https://cdn.business2community.com/wp-content/uploads/2013/08/eventbrite_logo2-300x300.jpg'
             else
               @event.image_url = event['logo']['url']
-
             end
-
-
 
           puts '------------------Venue eventbrite call------------------------'
           url_venue = "https://www.eventbriteapi.com/v3/venues/#{event['venue_id']}/?token=#{eventbrite_client}"
@@ -45,13 +38,10 @@ class Event < ApplicationRecord
           url_price = "https://www.eventbriteapi.com/v3/events/#{event['id']}/ticket_classes/?token=#{eventbrite_client}"
           response_price_call = HTTParty.get(url_price)
 
-
           #edge case for price call
-
-            if response_price_call['ticket_classes'].first['cost']
-              @event.price = response_price_call['ticket_classes'].first['cost']['major_value'].to_i
-            end
-
+          if response_price_call['ticket_classes'].first['cost']
+            @event.price = response_price_call['ticket_classes'].first['cost']['major_value'].to_i
+          end
 
           if event['category_id'] == '103'
              @event.category = 'music'
@@ -60,7 +50,6 @@ class Event < ApplicationRecord
           elsif event['category_id'] == '104'
             @event.category = 'entertainment'
           end
-
 
           #venue call
           @event.location = response_venue_call['address']['localized_address_display']
@@ -75,8 +64,6 @@ class Event < ApplicationRecord
 
           #save event
           @event.save
-
-
         end
     end
 

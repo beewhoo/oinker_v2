@@ -14,19 +14,7 @@ class WelcomeController < ApplicationController
 
   end
 
-  def date_choice
-  end
-
-  def budget_choice
-  end
-
-  def location_choice
-
-  end
-
-  def party_size
-  end
-
-  def categories
+  def select_choices
+    @events_category = ['concert', 'entertainment', 'art']
   end
 end

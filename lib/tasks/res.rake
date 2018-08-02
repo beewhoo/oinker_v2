@@ -13,7 +13,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 20
+    while offset < 100
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -32,7 +32,7 @@ namespace :res do
 
       # see from our list of categories if the restaurant has those categories
 
-      
+
       response_json['businesses'].each do |resta|
          @restaurant = Restaurant.find_or_create_by(yelp_id: resta["id"])
          our_categories = Category.all

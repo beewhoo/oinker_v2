@@ -9,29 +9,36 @@
 </h1>
 
 
-<% list=[] %>
-<% @restaurant_list.each do |restaurant| %>
-  <div class="individual-chosen-restaurant">
-    <% days_open = restaurant.restaurant_hours.map {|h| Date::DAYNAMES[h.day - 6]} %>
-    <% days_open.each do |day| %>
-      <% if day == @date.strftime('%A') && restaurant.price.to_i <= @price_max%>
-      <% list << restaurant %>
+<%= form_tag "/date_plan", method: :post do %>
+<section class="chosen">
+  <div class="restaurant-choice">
+    <% @restaurant_list.sample(3).each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant.id) do %>
+        <img  class= "individual-chosen-image" src="<%=restaurant.image_url%>" height="180" width="250"/>
+        $<%= restaurant.price %>
       <% end %>
+      <%= radio_button_tag(:restaurant, restaurant.id) %>
+      <%= label_tag(:restaurant, restaurant.name) %>
+      </br>
+      </br>
     <% end %>
-<% end  %>
   </div>
 
-<%= form_tag "/date_plan", method: :post do %>
-  <% list.sample(3).each do |restaurant| %>
-    <%= link_to restaurant_path(restaurant.id) do %>
-    <img  class= "individual-chosen-image" src="<%=restaurant.image_url%>" height="180" width="250"/>
+  <div class="event-choice">
+    <% @event_list.sample(3).each do |event| %>
+      <%= link_to event_path(event.id) do %>
+        <img  class= "individual-chosen-image" src="<%=event.image_url%>" height="180" width="250"/>
+        $<%= event.price %>
     <% end %>
-    <%= radio_button_tag(:restaurant, restaurant.id) %>
-    <%= label_tag(:restaurant, restaurant.name) %>
-    </br>
-    </br>
-  <% end %>
+      <%= radio_button_tag(:event, event.id) %>
+      <%= label_tag(:event, event.name) %>
+      </br>
+      </br>
+    <% end %>
+  </div>
+
   <input type="submit" name="commit" value="Save" />
+</section>
 
   <%= hidden_field_tag :date, params["date"] %>
 <% end %>
