@@ -31,17 +31,19 @@ class DatePlanController < ApplicationController
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
     @category = params["category"].keys
     @event_list = Event.all
- 
+
 
     list_of_restaurants_matching_days_open(@restaurant_list)
     real_price(@restaurant_list)
     event_list_category(@event_list)
+
+
   end
 
   def event_list_category(event_list)
     params[:event_category].each do |category|
       event_list.each do |event|
-        if category != 1 && event.category != category
+        if category != 1 && event.category == category
           event_list.delete(event)
         end
       end
@@ -68,6 +70,11 @@ class DatePlanController < ApplicationController
       end
     end
   end
+
+  def total_of_both(event_list, resta_list)
+    event_list.each do |event|
+      resta_list.each do |resta|
+        if event.price
 
 
 end
