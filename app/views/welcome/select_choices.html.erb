@@ -1,15 +1,19 @@
 
 
 <!-- DATE CHOICE -->
-  <h2>Pick a date for yo Date!</h2>
+<div class="pick-date">
+  <h2>Pick a date </h2>
   <%= form_tag "/date_plan", method: :get do %>
     <p>Date: <input type="text" id="datepicker" name="date"></p>
+  </div>
 
-    <div id="partysize">
-      <input type='button' value='-' class='qtyminus' field='quantity' />
-      <input type='text' name='quantity' value='0' class='qty' />
-      <input type='button' value='+' class='qtyplus' field='quantity' />
-    </div>
+<div id="partysize">
+  <h2> How many people </h2>
+  <input type='button' value='-' class='qtyminus' field='quantity' />
+  <input type='text' name='quantity' value='0' class='qty' />
+  <input type='button' value='+' class='qtyplus' field='quantity' />
+</div>
+
 
 <!-- BUDGET CHOICE -->
   <h3> Select an amount</h3>
@@ -48,7 +52,3 @@
   </div>
       <input type="submit" name="commit" value="show me da wae" />
     <% end %>
-
-<!-- PARTY SIZE -->
-
-</body>

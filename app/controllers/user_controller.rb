@@ -7,9 +7,12 @@ class UserController < ApplicationController
 
   def destroy
     load_user
-    @user.destroy
+    @date_plan = @date_plans.find_by(:id)
+    @user.date_plan.find_by(:id)
     redirect_to root
   end
+
+
 
   private
 
