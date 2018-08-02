@@ -153,7 +153,7 @@ function seeMoreButton(button) {
       method:'GET',
       dataType: 'json'
     }).done(function(responseData){
-      console.log(responseData);
+    
 
       responseData.forEach(function(e){
         var div = document.createElement('div')
