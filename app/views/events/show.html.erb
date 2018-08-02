@@ -1,57 +1,46 @@
 <head>
-<link href='https://fonts.googleapis.com/css?family=Barrio' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
 </head>
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <h1 style="color:blue;font-family:Barrio;font-size:300%;"> <%= @event.name %> </h1>
-</p>
-
-<p>
-  <img src = '<%= @event.image_url %>' width="50%" height="auto"/>
-</p>
-
-<p>
-  <strong>Event type:</strong>
-  <%= @event.category %>
-</p>
-
-<p>
-  <strong>Event Date:</strong>
-  <%= @event.date.strftime("%A %B %d %Y at %I:%M %p") %>
-</p>
-
-<p>
-  <strong>Avg Ticket Price:</strong>
-  $<%= @event.price %>
-</p>
-
-<p>
-  <strong><a href="<%= @event.url %>">Get tix here</a></strong>
-</p>
-
-<p>
-  OR HERE!:
-</p>
-<p>
-<iframe src="<%= @event.url %>"width="90%" height="400" frameborder="0" style="border:0" scrolling="yes" allowfullscreen></iframe>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.venue %>
-  <%= @event.location %>
-</p>
-
-<p>
-  <iframe src="https://maps.google.com/maps?q=<%= @event.lat %>,<%= @event.long %>&hl=en&z=14&amp;output=embed" width="90%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-</p>
-
-<p>
-  <% @event.api_id %>
-</p>
-
-
+<table>
+  <tr>
+    <th colspan='2'>
+    <div class="resto_container">
+     <img src='<%= @event.image_url %>' alt="resto_image" style="width:100%;">
+       <div class="bottom-left"><h1 style="background-color:#FFF782;color:#0272FF;font-size:250%;"> <%= @event.name %> </h1></div>
+    </div>
+    <td>
+  </tr>
+  <tr>
+  <tr>
+    <td style="height:35px;"><b>Type</b></td>
+    <td><%= @event.category.split.map(&:capitalize).join(' ') %></td>
+  </tr>
+  <tr>
+    <td style="height:35px;"><b>Event Date</b></td>
+    <td><%= @event.date.strftime("%a %b %-d %Y at %l:%M %p") %></td>
+  </tr>
+  <tr>
+    <td style="height:35px;"><b>Avg Ticket Price</b></td>
+    <td>$<%= @event.price %></td>
+  </tr>
+  <tr>
+    <td style="height:35px;"><b>Event Location</b></td>
+    <td><%= @event.venue %></td>
+  </tr>
+  <tr>
+    <td colspan='2'style="height:35px;"align='center'><span class="glyphicon glyphicon-globe" style="color:#0272FF"></span>&emsp;<a href="<%= @event.url %>">website</a></td>
+  </tr>
+  <tr>
+    <td style="height:50px;"align='center'colspan='2'><button class="button button1">Add To My Plan</button></th>
+  </tr>
+  <tr>
+    <th colspan='2'><iframe src="https://maps.google.com/maps?q=<%= @event.lat %>,<%= @event.long %>&hl=en&z=14&amp;output=embed" width=100% height=280px frameborder="0" style="border:0" allowfullscreen></iframe></td>
+  </tr>
+</table>
+<!--
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %> -->

@@ -92,3 +92,6 @@ gem 'date'
 #currency conversion
 
 gem 'google_currency', '~> 3.3'
+
+
+#infiniti scroll with ajax
