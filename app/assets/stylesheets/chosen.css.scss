@@ -1,13 +1,13 @@
-.chosen {
+.container {
   display: grid;
-  grid-template-columns: 1 1fr;
+  grid-template-columns: 50px 50px;
   grid-gap: 10px;
 }
 
-.restaurant-choice {
+.restaurant-choice .individual-chosen-image {
   grid-column: 0 / 1;
 }
 
-.event-choice {
+.event-choice .individual-chosen-image {
   grid-column: 1 / 2;
 }

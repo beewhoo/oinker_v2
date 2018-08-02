@@ -12,6 +12,6 @@ class WelcomeController < ApplicationController
   end
 
   def select_choices
-    @events_category = ['concert', 'entertainment', 'art']
+    @events_category = ['concert', 'entertainment', 'art', 'music']
   end
 end
