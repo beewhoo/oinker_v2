@@ -303,14 +303,14 @@ input.qtyminus { width:2.2em; height:2.2em;}
 .button1 {border-radius: 12px;}
 
 .b1 .button{
-padding-left: 49px;
-padding-right:49px;
+padding-left: 100px;
+padding-right:100px;
 }
 
 
 .b2 .button{
-padding-left: 35px;
-padding-right:35px;
+padding-left: 83px;
+padding-right:83px;
 background-color: white;
 border: solid 2px #0272FF;
 color: #0272FF;
@@ -318,9 +318,3 @@ font-weight: bold;
 }
 
 //table for buttons
-
-
-.class {
-  display: grid;
-  grid-template-columns: 1fr;
-}

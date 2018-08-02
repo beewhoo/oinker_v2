@@ -157,6 +157,14 @@ body {
   margin-top: 5em;
 }
 
+
+.sidebar-nav li {
+  color: #fff782;
+  margin-top: 2em;
+  
+
+}
+
 //toggle
 
 #menu-toggle {
@@ -260,31 +268,4 @@ body {
 
 .footer p {
   color:#0272ff
-}
-
-//
-
-
-@media(min-width:48em) { /* 768/16 */
-  #wrapper {
-    padding-left: 0;
-  }
-  #wrapper.toggled {
-    padding-left: 15.625em; /* 250/16 */
-  }
-  #sidebar-wrapper {
-    width: 0;
-  }
-  #wrapper.toggled #sidebar-wrapper {
-    width: 15.625em; /* 250/16 */
-  }
-  #page-content-wrapper {
-    padding-top: 4.99em; /* 20/16 */
-    position: relative;
-  }
-  #wrapper.toggled #page-content-wrapper {
-    position: relative;
-    margin-right: 0;
-  }
-
 }
