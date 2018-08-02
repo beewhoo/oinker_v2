@@ -17,6 +17,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "welcome";
+@import 'restaurants';
+@import 'events';
 
 
 body {
@@ -247,6 +249,23 @@ p {
   padding-left: 0px;
   padding-right: 0px;
 }
+
+
+//footer
+
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+  background-color: #fff782;
+}
+
+.footer p {
+  color:#0272ff
+}
+
+//
 
 
 @media(min-width:48em) { /* 768/16 */

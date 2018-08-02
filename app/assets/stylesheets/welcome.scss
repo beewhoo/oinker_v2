@@ -316,3 +316,11 @@ border: solid 2px #0272FF;
 color: #0272FF;
 font-weight: bold;
 }
+
+//table for buttons
+
+
+.class {
+  display: grid;
+  grid-template-columns: 1fr;
+}

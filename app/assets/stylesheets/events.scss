@@ -1,3 +1,40 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    font-family: normal 10px Nunito, sans-serif;
+}
+
+tr{
+   border-bottom: 1px solid #cecece;
+}
+
+table {
+    border-radius: 0px;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+}
+.resto_container {
+    position: relative;
+    text-align: center;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 25px;
+    left: 16px;
+}
+
+.button {
+    background-color: #0272FF;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+.button1 {border-radius: 12px;}
