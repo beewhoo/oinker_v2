@@ -6,9 +6,16 @@
 <h4>
   What you have saved:
 </h4>
-Restaurant: <%= @date_plan.restaurant.name %> </br>
-Event: <%= @date_plan.event.name %>
+Restaurant:
+  <%= link_to restaurant_path(@date_plan.restaurant.id) do %>
+    <%= @date_plan.restaurant.name %>
+  <% end %>
+</br>
 
+Event:
+  <%= link_to event_path(@date_plan.event.id) do %>
+    <%= @date_plan.event.name %>
+  <% end %>
 <div class="delete-button-plan">
   <%= button_to "delete", show_date_plan_url(@date_plan), method: :delete, data: {confirm: "Are you sure you want to delete your plan?"}%>
 </div>
