@@ -1,3 +1,9 @@
+
+
+<div class="signup_main">
+
+<%= render 'devise/shared/links' %>
+
 <div class="panel panel-default devise-bs">
   <div class="panel-heading">
     <h4><%= t('.sign_in', default: 'Sign in') %></h4>
@@ -19,8 +25,11 @@
           <% end %>
         </div>
       <% end %>
+
+
+
+
+
       <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary' %>
     <% end %>
   </div>
-</div>
-<%= render 'devise/shared/links' %>

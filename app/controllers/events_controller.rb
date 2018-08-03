@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.order('RANDOM()').limit(9)
+    @events = Event.order('RANDOM()').limit(15)
 
     respond_to do |format|
        format.html # index.html.erb
