@@ -10,7 +10,9 @@
 
 <div class="event-category">
   <h5>Event:</h5>
-?
+  <% @event_categories.each do |category| %>
+  <span><%= category.capitalize %></span>
+  <% end %>
 </div>
 
 <p>

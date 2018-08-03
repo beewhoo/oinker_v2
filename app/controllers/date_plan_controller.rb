@@ -42,10 +42,10 @@ class DatePlanController < ApplicationController
     @quantity = params['quantity'].to_i
     @price_max = params['price_max'].to_i
     @price_max_for_quantity = @quantity * @price_max
-
     @restaurant_list = Restaurant.joins(:categories).where("categories.category" => params["category"].keys)
     @category = params["category"].keys
     @event_list = Event.where("category in (?)", event_filter_categories)
+    @event_categories = event_filter_categories
 
 
     list_of_restaurants_matching_days_open(@restaurant_list)

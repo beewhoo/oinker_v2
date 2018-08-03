@@ -28,6 +28,18 @@
   padding: 0.3em;
 }
 
+.event-category span:nth-child(odd) {
+  color: #0272FF;
+  background-color: #FFF782;
+  padding: 0.3em;
+}
+
+.event-category span:nth-child(even) {
+  background-color: #0272FF;
+  color: #FFF782;
+  padding: 0.3em;
+}
+
 // grid
 .list-restaurant {
   display: inline-block;
