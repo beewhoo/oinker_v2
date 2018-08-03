@@ -38,36 +38,47 @@
     <div id="sidebar-wrapper">
        <ul class="sidebar-nav">
 
-         <li>
-           <% if current_user %>
+        <% if current_user %>
+          <li>
            <%=image_tag(current_user.picture, class:'profile_image')%>
            <p><%=current_user.first_name%> <%=current_user.last_name%></p>
-             <%end%>
+         </li>
+         <li>
+             <%=link_to('Logout', destroy_user_session_path, :method => :delete)%>
          </li>
 
-           <li class="sidebar-brand">
-               <a href="#">
-                   Oinker
-               </a>
-           </li>
+        <%end%>
+
+
+
+
            <li>
                <%=link_to('Home', root_path)%>
            </li>
            <li>
-               <%=link_to('Browse', welcome_trending_path)%>
+               <%=link_to('Explore', welcome_trending_path)%>
            </li>
            <li>
-               <%=link_to('Search', welcome_choice_path)%>
+               <%=link_to('Make Plans', welcome_choice_path)%>
            </li>
 
            <%if !current_user %>
            <li>
-               <%=link_to('Sign up', new_user_registration_path)%>
+             <%=link_to('Log in', new_user_session_path)%>
            </li>
-           <%end%>
            <li>
-               <%=link_to('About')%>
+            <%=link_to('Sign up', new_user_registration_path)%>
            </li>
+
+           <%end%>
+
+           <li>
+               <%=link_to('Our Team')%>
+           </li>
+
+            <li>
+              Oinker
+            </li>
 
        </ul>
    </div>
