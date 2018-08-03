@@ -5,8 +5,7 @@ namespace :res do
   desc "TODO"
   task store: :environment do
 
-    Rake::Task["db:reset"].reenable
-    Rake::Task["db:reset"].invoke
+  
 
 
     API_KEY=ENV['yelp_key']
