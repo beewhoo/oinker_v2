@@ -277,5 +277,11 @@ body {
 /// avatar
 
 .carousel-caption img{
-max-width: 30%;
+max-width: 300px;
+}
+
+.button_container{
+position: relative;
+
+transform: translateY(30%);
 }

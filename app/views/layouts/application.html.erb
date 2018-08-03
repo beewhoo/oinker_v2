@@ -38,16 +38,7 @@
     <div id="sidebar-wrapper">
        <ul class="sidebar-nav">
 
-        <% if current_user %>
-          <li>
-           <%=image_tag(current_user.picture, class:'profile_image')%>
-           <p><%=current_user.first_name%> <%=current_user.last_name%></p>
-         </li>
-         <li>
-             <%=link_to('Logout', destroy_user_session_path, :method => :delete)%>
-         </li>
 
-        <%end%>
 
 
 
@@ -56,7 +47,7 @@
                <%=link_to('Home', root_path)%>
            </li>
            <li>
-               <%=link_to('Explore', welcome_trending_path)%>
+               <%=link_to('Trending', welcome_trending_path)%>
            </li>
            <li>
                <%=link_to('Make Plans', welcome_choice_path)%>
@@ -73,12 +64,19 @@
            <%end%>
 
            <li>
-               <%=link_to('Our Team')%>
+               <%=link_to('About Us', welcome_about_path)%>
            </li>
 
-            <li>
-              Oinker
+           <% if current_user %>
+             <li>
+              <%=image_tag(current_user.picture, class:'profile_image')%>
+              <p><%=current_user.first_name%> <%=current_user.last_name%></p>
             </li>
+            <li>
+                <%=link_to('Logout', destroy_user_session_path, :method => :delete)%>
+            </li>
+
+           <%end%>
 
        </ul>
    </div>
@@ -99,7 +97,7 @@
 </main>
 
   <footer class="footer">
-      <p>Copyright Yumee | Bibek | Steven | Kasia | Wendy</p>
+      <p>Copyright Oinker Inc. |  <%=link_to('About Us', welcome_about_path)%></p>
   </footer>
 
 </html>
