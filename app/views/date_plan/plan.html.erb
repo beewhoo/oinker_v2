@@ -31,10 +31,11 @@
       </br>
       $<%= restaurant.price %>
       </br>
-
-      <%= link_to restaurant_path(restaurant.id) do %>
-        <%= label_tag(:restaurant, restaurant.name) %>
-      <% end %>
+  <%= link_to restaurant_path(restaurant.id) do %>
+  <p class="restaurant-name">
+    <%= label_tag(:restaurant, restaurant.name) %>
+  </p>
+  <% end %>
 
       </br>
       </br>
@@ -61,7 +62,7 @@
 
   <% end %>
 </th>
-  
+
 
   </td>
   <p>
