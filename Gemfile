@@ -91,7 +91,9 @@ gem 'bootstrap-social-rails', '~> 4.8'
 gem 'date'
 #currency conversion
 
-gem 'google_currency', '~> 3.3'
+
+#moving from alpha to beta phase #project renamed to code name Oinker! Bravo out!
+gem 'rename'
 
 
 #infiniti scroll with ajax

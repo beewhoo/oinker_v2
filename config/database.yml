@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: project_development
+  database: oinker_development
   pool: 5
   username:
   password:
@@ -41,7 +41,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: project_test
+  database: oinker_test
   pool: 5
   username:
   password:
@@ -49,7 +49,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: project_production
+  database: oinker_production
   pool: 5
   username: 
   password:
