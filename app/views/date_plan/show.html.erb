@@ -1,13 +1,14 @@
-<h2>
+<h2 class="planned-date">
   Here is your date plan for:
   <%= @date_plan.date.strftime('%A, %b %e %Y') %>
 </h2>
 
+<h4>
+  What you have saved:
+</h4>
+Restaurant: <%= @date_plan.restaurant.name %> </br>
+Event: <%= @date_plan.event.name %>
 
-<%= @date_plan.restaurant.name %>
-<img src="<%=@date_plan.restaurant.image_url%>" height="200" width="200"/>
-
-<%= @date_plan.event.name %>
-<img src="<%=@date_plan.event.image_url%>" height="200" width="200"/>
-
-<%= button_to "delete", show_date_plan_url(@date_plan), method: :delete, data: {confirm: "Are you sure you want to delete your plan?"}%>
+<div class="delete-button-plan">
+  <%= button_to "delete", show_date_plan_url(@date_plan), method: :delete, data: {confirm: "Are you sure you want to delete your plan?"}%>
+</div>
