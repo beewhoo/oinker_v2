@@ -59,16 +59,21 @@ $.ajax({
   method:'GET',
   dataType: 'json'
 }).done(function(responseData){
-  console.log(responseData);
+
 
   responseData.forEach(function(e){
     var div = document.createElement('div')
     var image = document.createElement('img')
-    var p = document.createElement('p')
+    var a = document.createElement('a')
+
 
     image.src = e.image_url
     image.classList='gallery-image'
-    div.append(image)
+
+    a.href = '/events/' + e.id
+
+    a.append(image)
+    div.append(a)
     div.classList ='gallery-item'
     // p.innerText = e.name
     // p.style.color = 'blue'
@@ -82,26 +87,27 @@ $.ajax({
 
 //res
 
-$.ajax({
-url:'/restaurants',
-method:'GET',
-dataType: 'json'
-}).done(function(responseRest){
-console.log(responseRest);
-responseRest.forEach(function(e){
-var div2 = document.createElement('div')
-var image = document.createElement('img')
-var p = document.createElement('p')
+    $.ajax({
+    url:'/restaurants',
+    method:'GET',
+    dataType: 'json'
+    }).done(function(responseRest){
 
-image.src = e.image_url
-image.style.height = '200px'
-image.classList='galler-image'
-div2.append(image)
-div2.classList ='gallery-item'
-// p.innerText = e.name
-// p.style.color = 'blue'
-// div2.append(p)
-container.append(div2)
+    responseRest.forEach(function(e){
+    var div2 = document.createElement('div')
+    var image2 = document.createElement('img')
+    var a2 = document.createElement('a')
+
+    image2.src = e.image_url
+    image2.style.height = '200px'
+    image2.classList='galler-image'
+
+    a2.href = '/restaurants/' + e.id
+    a2.append(image2)
+    div2.append(a2)
+    div2.classList ='gallery-item'
+
+    container.append(div2)
 
 
 });
@@ -142,26 +148,31 @@ function seeMoreButton(button) {
   button.addEventListener('click', function() {
     var container = document.querySelector('.gallery');
 
-      $.ajax({
-        url:'/events',
-        method:'GET',
-        dataType: 'json'
-      }).done(function(responseData){
-        console.log(responseData);
+    $.ajax({
+      url:'/events',
+      method:'GET',
+      dataType: 'json'
+    }).done(function(responseData){
+    
 
-        responseData.forEach(function(e){
-          var div = document.createElement('div')
-          var image = document.createElement('img')
-          var p = document.createElement('p')
+      responseData.forEach(function(e){
+        var div = document.createElement('div')
+        var image = document.createElement('img')
+        var a = document.createElement('a')
 
-          image.src = e.image_url
-          image.classList='gallery-image'
-          div.append(image)
-          div.classList ='gallery-item'
-          // p.innerText = e.name
-          // p.style.color = 'blue'
-          // div.append(p)
-          container.append(div)
+
+        image.src = e.image_url
+        image.classList='gallery-image'
+
+        a.href = '/events/' + e.id
+
+        a.append(image)
+        div.append(a)
+        div.classList ='gallery-item'
+        // p.innerText = e.name
+        // p.style.color = 'blue'
+        // div.append(p)
+        container.append(div)
 
 
         });
@@ -171,25 +182,27 @@ function seeMoreButton(button) {
           //res
 
           $.ajax({
-            url:'/restaurants',
-            method:'GET',
-            dataType: 'json'
+          url:'/restaurants',
+          method:'GET',
+          dataType: 'json'
           }).done(function(responseRest){
-          console.log(responseRest);
-            responseRest.forEach(function(e){
-              var div2 = document.createElement('div')
-              var image = document.createElement('img')
-              var p = document.createElement('p')
 
-              image.src = e.image_url
-              image.style.height = '200px'
-              image.classList='galler-image'
-              div2.append(image)
-              div2.classList ='gallery-item'
-              // p.innerText = e.name
-              // p.style.color = 'blue'
-              // div2.append(p)
-              container.append(div2)
+          responseRest.forEach(function(e){
+          var div2 = document.createElement('div')
+          var image2 = document.createElement('img')
+          var a2 = document.createElement('a')
+
+          image2.src = e.image_url
+          image2.style.height = '200px'
+          image2.classList='galler-image'
+
+          a2.href = '/restaurants/' + e.id
+          a2.append(image2)
+          div2.append(a2)
+          div2.classList ='gallery-item'
+
+          container.append(div2)
+
 
 
             });
@@ -268,10 +281,21 @@ function seeMoreButton(button) {
       }
 
 
+      //collapsible about us page
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
 
-
-
-
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
 
 
 //dom loaded
