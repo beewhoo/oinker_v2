@@ -283,6 +283,6 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2, ENV['google_api_key'], ENV['google_secret_key'], {}
 
-  config.secret_key = ENV['devise_secret_key']
+  config.secret_key = 'c772ea2ec6a51e94d49022c2af2793b0a7614327a6064de0ccb1bbe46c823db32fd4363cb81d21e785608bbc28c784cc1421d2a124483c0636968726be95b44d'
 
 end
