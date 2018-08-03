@@ -3,10 +3,12 @@ class WelcomeController < ApplicationController
    skip_before_action :authenticate_user!
 
 
-  
+
   def homepage
   end
 
+  def about
+  end
 
   def trending
     @top_rated_restaurants = Restaurant.rating
