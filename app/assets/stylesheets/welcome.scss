@@ -288,33 +288,39 @@ input.qtyminus { width:2.2em; height:2.2em;}
 //button
 
 
-.button {
-   background-color: #0272FF;
-   border: none;
-   color: white;
-   padding: 20px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin: 25px 25px;
-}
-.button1 {border-radius: 12px;}
-
-.b1 .button{
-padding-left: 100px;
-padding-right:100px;
+.button_home{
+  width:250px;
+  background-color: #0272ff;
+  border-radius : 6px;
+  margin:10px;
+  padding:0;
+  color:white;
 }
 
-
-.b2 .button{
-padding-left: 83px;
-padding-right:83px;
-background-color: white;
-border: solid 2px #0272FF;
-color: #0272FF;
-font-weight: bold;
+.b2 .button_home {
+  background-color: white;
+  color:#0272ff;
+  border: 2px solid #0272ff;
 }
+
+.button_home p{
+  font-size: 20px;
+}
+
+
+.choice-button > input[type='submit'] {
+  width:250px;
+  background-color: #0272ff;
+  border-radius : 6px;
+  margin:10px;
+  padding:0;
+  color:white;
+  padding:10px;
+
+
+}
+
+
 
 
 
@@ -356,3 +362,24 @@ font-weight: bold;
   }
 
   .content_collapse p {color: black;}
+
+
+
+.budget #amount{
+  font-size:1.5em;
+}
+
+  .dollar {
+
+    font-size: 2em;
+    color:red;
+
+  }
+
+  .amount {
+    font-size:1.5em;
+}
+
+#datepicker {
+  font-size: 1.5em;
+}

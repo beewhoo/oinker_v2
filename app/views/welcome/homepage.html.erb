@@ -16,13 +16,14 @@
           <!-- slide that the web opens on-->
           <div class="item active">
             <div class="carousel-image">
-              <%= image_tag("carousel/food.jpg") %>
+              <%= image_tag("carousel/concert.jpg") %>
             </div>
             <div class="carousel-caption">
+              <%= image_tag("carousel/discover.png", class:'.avatar') %>
              <h1>Discover</h1>
-              <p>
+              <h3>
                 Find the newest restaurants and cool events happening near you
-              </p>
+              </h3>
             </div>
           </div>
           <div class="item">
@@ -30,21 +31,23 @@
             <%= image_tag("carousel/events.jpg") %>
             </div>
             <div class="carousel-caption">
+            <%= image_tag("carousel/plan.png", class:'.avatar') %>
              <h1>Plan</h1>
-              <p>
+              <h3>
                 Choose your plans, at the budget you want
-              </p>
+              </h3>
             </div>
           </div>
           <div class="item">
             <div class= "carousel-image">
-              <%= image_tag("carousel/home.jpg") %>
+              <%= image_tag("carousel/food.jpg") %>
             </div>
             <div class="carousel-caption">
+              <%= image_tag("carousel/enjoy.png", class:'.avatar') %>
              <h1>Enjoy</h1>
-              <p>
+              <h3>
                 We'll keep you on track so you can sit back and relax
-              </p>
+              </h3>
             </div>
           </div>
         </div>
@@ -64,10 +67,14 @@
 
 
 <div class="b1">
-  <button class="button button1">Explore</button>
+  <a href="/welcome/trending">
+  <button class="button_home"><p>Explore</p></button>
+  </a>
 </div>
+
+
 <div class="b2">
   <a href="/welcome/choice">
-  <button class="button button1" >Make Plans</button>
+  <button class="button_home" ><p>Make Plans</p></button>
   </a>
 </div>

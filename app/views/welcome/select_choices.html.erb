@@ -24,8 +24,8 @@
 <div class="budget">
   <h2> What's your budget per person? </h2>
   <p>
-   <label for="amount">Max amount per person:</label> </br>
-   $<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;" name= "price_max">
+   <label class='amount' for="amount">Max amount per person:</label> </br><span class='dollar'>
+   $</span><input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;" name= "price_max">
   </p>
   <div id="slider-range-max"></div>
 </div>
@@ -58,8 +58,10 @@
     </ul>
   </div>
 
+
+
   <div class="choice-button">
-    <input type="submit" name="commit" value="Find me a date!" />
+    <input id="#date_button"type="submit" name="commit" value="Find me a date!" />
   </div>
   <% end %>
 </section>
