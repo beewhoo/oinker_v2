@@ -251,7 +251,6 @@ input.qtyminus { width:2.2em; height:2.2em;}
 }
 
 .gallery-item {
-
 	flex: 1 0 24rem;
 	margin: 1rem;
 	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
@@ -323,4 +322,14 @@ font-weight: bold;
 .class {
   display: grid;
   grid-template-columns: 1fr;
+}
+
+// carousel
+.carousel-image {
+  max-width: 100%;
+  max-height: 70%;
+}
+
+#page-content-wrapper {
+  padding-top: 0px;
 }
