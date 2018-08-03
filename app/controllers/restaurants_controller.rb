@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.order('RANDOM()').limit(11)
+    @restaurants = Restaurant.order('RANDOM()').limit(15)
 
     respond_to do |format|
        format.html # index.html.erb

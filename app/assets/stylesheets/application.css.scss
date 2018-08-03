@@ -53,6 +53,11 @@ body {
   padding: 1em;
 }
 
+.signup_main {
+
+  margin-top: 3em;
+}
+
 
 // sidebar menu
 // body {
@@ -107,7 +112,7 @@ body {
 
 .sidebar-nav {
   position: absolute;
-  top: 0;
+  top: 75px;
   width: 15.625em; /* 250/16 */
   margin: 0;
   padding: 0;
@@ -154,6 +159,14 @@ body {
   max-width: 6.25em; /* 100/16 */
   border-radius:50%;
   margin-top: 5em;
+}
+
+
+.sidebar-nav li {
+  color: #fff782;
+  margin-top: 2em;
+
+
 }
 
 //toggle
@@ -262,31 +275,4 @@ body {
 
 .footer p {
   color:#0272ff
-}
-
-//
-
-
-@media(min-width:48em) { /* 768/16 */
-  #wrapper {
-    padding-left: 0;
-  }
-  #wrapper.toggled {
-    padding-left: 15.625em; /* 250/16 */
-  }
-  #sidebar-wrapper {
-    width: 0;
-  }
-  #wrapper.toggled #sidebar-wrapper {
-    width: 15.625em; /* 250/16 */
-  }
-  #page-content-wrapper {
-    padding-top: 4.99em; /* 20/16 */
-    position: relative;
-  }
-  #wrapper.toggled #page-content-wrapper {
-    position: relative;
-    margin-right: 0;
-  }
-
 }
