@@ -1,7 +1,14 @@
 namespace :res do
 
+
+
   desc "TODO"
   task store: :environment do
+
+    Rake::Task["db:reset"].reenable
+    Rake::Task["db:reset"].invoke
+
+
     API_KEY=ENV['yelp_key']
     API_HOST = "https://api.yelp.com"
     SEARCH_PATH = "/v3/businesses/search"
@@ -13,7 +20,7 @@ namespace :res do
     puts "= Getting the restaurants"
 
 
-    while offset < 200
+    while offset < 1000
 
     url = "#{API_HOST}#{SEARCH_PATH}"
     url_details = "#{API_HOST}#{BUSINESS_PATH}"
@@ -96,7 +103,7 @@ namespace :res do
         SEATGEEK_CITY='location=toronto'
         SEATGEEK_LISTINGS ='&listing_count.gt=0&per_page=1'
         SEATGEEK_PAGE = '&page=1'
-        SEATGEEK_PRICE='&highest_price.lte=200'
+        SEATGEEK_PRICE='&highest_price.lte=10'
 
 
         puts "= Getting the EVENTS"
@@ -150,7 +157,7 @@ namespace :res do
           #nextcalls
 
 
-          while response_eventbrite['pagination']['has_more_items'] == true  && page_number < 5
+          while response_eventbrite['pagination']['has_more_items'] == true  && page_number < 10
             page_number +=1
             url = "https://www.eventbriteapi.com/v3/events/search/?token=#{eventbrite_client}&location.latitude=43.644&location.longitude=-79.409&location.within=50km&price=paid&categories=103,105,104&page=#{page_number}"
             response = HTTParty.get(url)
