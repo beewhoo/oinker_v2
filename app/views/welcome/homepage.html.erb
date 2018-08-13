@@ -9,6 +9,7 @@
           <li data-target="#slider" data-slide-to="0" class="active"></li>
           <li data-target="#slider" data-slide-to="1"></li>
           <li data-target="#slider" data-slide-to="2"></li>
+          <li data-target="#slider" data-slide-to="3"></li>
         </ol>
 
         <!-- wrapper for slides -->
@@ -16,10 +17,9 @@
           <!-- slide that the web opens on-->
           <div class="item active">
             <div class="carousel-image">
-              <%= image_tag("carousel/concert.jpg") %>
+
             </div>
             <div class="carousel-caption">
-              <%= image_tag("carousel/discover.png", class:'.avatar') %>
              <h1>Discover</h1>
               <h3>
                 Find the newest restaurants and cool events happening near you
@@ -28,10 +28,9 @@
           </div>
           <div class="item">
             <div class= "carousel-image">
-            <%= image_tag("carousel/events.jpg") %>
+
             </div>
             <div class="carousel-caption">
-            <%= image_tag("carousel/plan.png", class:'.avatar') %>
              <h1>Plan</h1>
               <h3>
                 Choose your plans, at the budget you want
@@ -40,17 +39,41 @@
           </div>
           <div class="item">
             <div class= "carousel-image">
-              <%= image_tag("carousel/food.jpg") %>
+
             </div>
             <div class="carousel-caption">
-              <%= image_tag("carousel/enjoy.png", class:'.avatar') %>
              <h1>Enjoy</h1>
               <h3>
                 We'll keep you on track so you can sit back and relax
               </h3>
             </div>
           </div>
+          <div class="item">
+            <div class= "carousel-image">
+
+            </div>
+            <div class="carousel-caption">
+
+             <h1>Plan</h1>
+             <div class="button_container">
+
+                 <div class="b1">
+                   <a href="/welcome/trending">
+                   <button class="button_home"><p>Explore</p></button>
+                   </a>
+                 </div>
+
+
+                 <div class="b2">
+                   <a href="/welcome/choice">
+                   <button class="button_home" ><p>Make Plans</p></button>
+                   </a>
+                 </div> 
+            </div>
+          </div>
         </div>
+
+
         <!-- controls / next and prev buttons. id should be of your slider-->
         <a class="left carousel-control" href="#slider" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -64,19 +87,5 @@
 </div>
 </section>
 
-<div class="button_container">
-  
-    <div class="b1">
-      <a href="/welcome/trending">
-      <button class="button_home"><p>Explore</p></button>
-      </a>
-    </div>
-
-
-    <div class="b2">
-      <a href="/welcome/choice">
-      <button class="button_home" ><p>Make Plans</p></button>
-      </a>
-    </div>
 
 </div>
