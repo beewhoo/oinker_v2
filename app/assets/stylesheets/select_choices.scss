@@ -1,7 +1,7 @@
 .make-choices {
   display: grid;
   grid-template-rows: 10% 10% 10% 10% 10% 10% 10%;
-  color: #0272FF;
+  color: #5f090a;
   grid-row-gap: 0.5em;
 }
 
@@ -16,12 +16,12 @@
 }
 
 .make-plan span {
-  background-color: #FFF782;
+  background-color: #5f090a;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   padding-left: 0.4em;
   padding-right: 0.4em;
-  color: #0272FF;
+  color: #e1d4d0;
   font-size: 0.9em;
 }
 
@@ -49,7 +49,7 @@
 
 .budget #amount {
   text-align: center;
-  color: #0272FF !important;
+  color: #5f090a !important;
 }
 
 .budget {

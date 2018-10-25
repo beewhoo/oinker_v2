@@ -6,37 +6,37 @@
   margin-bottom: 30px;
 }
 .food span {
-  background-color: #FFF782;
+  background-color: #5f090a;
   padding-bottom: 0.2em;
   padding-top: 0.2em;
   padding-left: 0.4em;
   padding-right: 0.4em;
-  color: #0272FF;
+  color: #d1797a;
   font-size: 0.9em;
 }
 
 // categories showing in different background colors and colors
 .food-category span:nth-child(even) {
-  color: #0272FF;
-  background-color: #FFF782;
+  color: #d1797a;
+  background-color: #5f090a;
   padding: 0.3em;
 }
 
 .food-category span:nth-child(odd) {
-  background-color: #0272FF;
-  color: #FFF782;
+  background-color: #d1797a;
+  color: #5f090a;
   padding: 0.3em;
 }
 
 .event-category span:nth-child(odd) {
-  color: #0272FF;
-  background-color: #FFF782;
+  color: #d1797a;
+  background-color: #5f090a;
   padding: 0.3em;
 }
 
 .event-category span:nth-child(even) {
-  background-color: #0272FF;
-  color: #FFF782;
+  background-color: #d1797a;
+  color: #5f090a;
   padding: 0.3em;
 }
 
@@ -70,7 +70,7 @@ label > input{
 }
 
 .radio-restaurant > input:checked + img {
-  border: 5px solid #FFF782;
+  border: 5px solid #5f090a;
   opacity: 0.7;
 }
 .radio-event > input + img {
@@ -79,7 +79,7 @@ label > input{
 }
 
 .radio-event > input:checked + img {
-  border: 5px solid #0272FF;
+  border: 5px solid #d1797a;
   opacity: 0.7;
 }
 

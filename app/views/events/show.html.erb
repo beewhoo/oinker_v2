@@ -10,7 +10,7 @@
     <th colspan='2'>
     <div class="resto_container">
      <img src='<%= @event.image_url %>' alt="resto_image" style="width:100%;">
-       <div class="bottom-left"><h1 style="background-color:#FFF782;color:#0272FF;font-size:250%;"> <%= @event.category.split.map(&:capitalize).join(' ') %></h1></div>
+       <div class="bottom-left"> <%= @event.category.split.map(&:capitalize).join(' ') %></h1></div>
     </div>
     <td>
   </tr>
